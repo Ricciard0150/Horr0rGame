@@ -68,6 +68,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Drop",
+                    "type": "Button",
+                    "id": "805aa5f6-791a-4ec7-b7e4-5407e70fc28d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -288,6 +297,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "UseFlashlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc2c6df9-4fc0-4e8c-b44c-7f0062e19267",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

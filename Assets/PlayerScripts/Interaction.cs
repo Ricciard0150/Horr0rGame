@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
-public class Interaction : MonoBehaviour
+public class Interaction : MonoBehaviour, IStatusPlayer
 {
     private int batteries;
     [SerializeField] float _interactionRange = 3f;  

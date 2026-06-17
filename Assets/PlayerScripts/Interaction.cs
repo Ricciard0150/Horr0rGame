@@ -7,6 +7,7 @@ public class Interaction : MonoBehaviour, IStatusPlayer
     [SerializeField] float _interactionRange = 3f;  
     private Camera _mainCam;
     private IInteractable _hit;
+    public PickUpItems _pui;
     
     void Start()
     {
@@ -44,5 +45,9 @@ public class Interaction : MonoBehaviour, IStatusPlayer
             return;
         
         _hit.Interact();
+    }
+    public void OnDrop(InputValue value)
+    {
+        _pui.Drop();
     }
 }

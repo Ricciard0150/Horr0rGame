@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
@@ -17,7 +19,6 @@ public class PickUpItems : MonoBehaviour, ICollectable
         rb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
         outline = GetComponent<Outline>();
-
         outline.enabled = false;
     }
 
@@ -36,6 +37,15 @@ public class PickUpItems : MonoBehaviour, ICollectable
         boxCollider.enabled = false;
 
         outline.enabled = false;
+    }
+    public void Drop()
+    {
+        if (!isCollected)
+            return;
+        isCollected = false;
+        transform.SetParent(null);
+        rb.isKinematic = false;
+        boxCollider.enabled = true;
     }
 
     public void ShowOutline()

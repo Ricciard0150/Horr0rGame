@@ -8,6 +8,11 @@ public class Batteries : MonoBehaviour, ICollectable
         Destroy(gameObject);
     }
 
+    public void Drop()
+    {
+       //nothing;
+    }
+
     public void HideOutline()
     {
         if (outline != null)

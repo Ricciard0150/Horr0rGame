@@ -470,6 +470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KitFirstPerson
       objectReference: {fileID: 0}
+    - target: {fileID: 2838499693349212231, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
+      propertyPath: _pui
+      value: 
+      objectReference: {fileID: 907371262}
     - target: {fileID: 8331855999357980384, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.067

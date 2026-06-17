@@ -3,9 +3,9 @@ using UnityEngine;
 public class Batteries : MonoBehaviour, ICollectable
 {
     private Outline outline;
-    public void Collect()
+    public void Collect(Transform parent)
     {
-      Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     public void HideOutline()

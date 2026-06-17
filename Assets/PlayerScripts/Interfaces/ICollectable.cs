@@ -2,9 +2,7 @@ using UnityEngine;
 
 public interface ICollectable
 {
-    void Collect();
-
-    public void ShowOutline();
-
-    public void HideOutline();
+    void Collect(Transform parent);
+    void ShowOutline();
+    void HideOutline();
 }

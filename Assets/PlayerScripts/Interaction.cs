@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 public class Interaction : MonoBehaviour, IStatusPlayer
 {
-    private int batteries;
+
     [SerializeField] float _interactionRange = 3f;  
     private Camera _mainCam;
     private IInteractable _hit;

@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
 
     private Camera _mainCam;
     private ICollectable _hit;
+    [SerializeField] private PickUpItems _pui;
 
     [SerializeField] private int _batteries;
 
@@ -66,6 +67,11 @@ public class Inventory : MonoBehaviour
         GameController.Instance.OnUseBattery.Invoke();
     }
 
+    public void OnDrop(InputValue value)
+    {
+      
+        _pui.Drop();
+    }
     public void OnUseFlashlight(InputValue value)
     {
         GameController.Instance.OnUseFlashlight.Invoke();

@@ -8,19 +8,17 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+    [SerializeField] private GameObject settingsPanel;
 
-    // Abrir painel de configurações
-    public void AbrirConfiguracoes(GameObject settingsPanel)
+    public void AbrirConfiguracoes()
     {
         settingsPanel.SetActive(true);
     }
 
-    // Fechar painel de configurações
-    public void FecharConfiguracoes(GameObject settingsPanel)
+    public void FecharConfiguracoes()
     {
         settingsPanel.SetActive(false);
     }
-
     // Sair do jogo
     public void SairJogo()
     {

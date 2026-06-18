@@ -15,7 +15,7 @@ public class PatrolController : MonoBehaviour
     }
     public Vector3 MoveToNextPoint()
     {
-               if (_patrolPoints.Length == 0)
+        if (_patrolPoints.Length == 0)
             return Vector3.zero;
         Vector3 nextPoint = _patrolPoints[_currentPointIndex].localPosition;
         _currentPointIndex++;

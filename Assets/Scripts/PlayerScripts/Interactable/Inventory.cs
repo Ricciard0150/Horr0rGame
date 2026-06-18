@@ -50,9 +50,7 @@ public class Inventory : MonoBehaviour
 
         _hit.Collect(_holdPoint);
 
-        _batteries++;
     }
-
     public void OnRechange(InputValue value)
     {
         if (_batteries <= 0)

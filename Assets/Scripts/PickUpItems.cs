@@ -3,6 +3,13 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
+public enum ItemType
+{
+    QueenKey,
+    Hammer,
+    Battery
+}
+
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Outline))]
@@ -12,10 +19,9 @@ public class PickUpItems : MonoBehaviour, ICollectable
     private BoxCollider boxCollider;
     private Outline outline;
 
-    private bool isCollected;
+    public bool isCollected { get; set; }
 
-
-    private void Awake()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();

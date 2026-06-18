@@ -14,8 +14,7 @@ public class GameController : MonoBehaviour
     [Header("Events")]
     public UnityEvent OnUseBattery;
     public UnityEvent OnUseFlashlight;
-    //public GameObject Player { get; private set; }
-    //[SerializeField] private GameObject player  ;
+
     void Awake()
     {
         Instance = this;    

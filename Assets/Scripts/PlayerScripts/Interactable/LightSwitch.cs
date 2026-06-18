@@ -28,7 +28,7 @@ public class LightSwitch : MonoBehaviour, IInteractable
             OnTurnOn.Invoke();
             isOn = true;
         }
-        //anim
+
     }
 
     public void ShowOutline()
@@ -44,5 +44,4 @@ public class LightSwitch : MonoBehaviour, IInteractable
         outline.enabled = false;   
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 }

@@ -19,11 +19,7 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (!Physics.Raycast(
-                _mainCam.transform.position,
-                _mainCam.transform.forward,
-                out RaycastHit hit,
-                _interactionRange))
+        if (!Physics.Raycast(_mainCam.transform.position, _mainCam.transform.forward, out RaycastHit hit, _interactionRange))
         {
             _hit?.HideOutline();
             _hit = null;

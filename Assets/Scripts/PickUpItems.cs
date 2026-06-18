@@ -14,6 +14,7 @@ public class PickUpItems : MonoBehaviour, ICollectable
 
     private bool isCollected;
 
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();

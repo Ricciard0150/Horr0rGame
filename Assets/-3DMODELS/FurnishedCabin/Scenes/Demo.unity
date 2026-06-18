@@ -424,7 +424,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4619252642239771362, guid: 62676ba4a65d36d4d8cb012fd1315648, type: 3}
       propertyPath: m_Name
-      value: Plank1 (1)
+      value: Plank3
       objectReference: {fileID: 0}
     - target: {fileID: 6739673910828782636, guid: 62676ba4a65d36d4d8cb012fd1315648, type: 3}
       propertyPath: m_LocalScale.x
@@ -536,6 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlankDoor
   _pui: {fileID: 907371271}
+  itemType: 0
 --- !u!114 &535542872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,6 +1115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlankDoor
   _pui: {fileID: 907371271}
+  itemType: 0
 --- !u!114 &959808776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1598,6 +1600,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4000010589596892, guid: 23d25b2e2d4364dd4b92c52ef40cd36e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013620288728, guid: 23d25b2e2d4364dd4b92c52ef40cd36e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.042999744
+      objectReference: {fileID: 0}
     - target: {fileID: 23000013540946128, guid: 23d25b2e2d4364dd4b92c52ef40cd36e, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1961,7 +1971,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4619252642239771362, guid: 62676ba4a65d36d4d8cb012fd1315648, type: 3}
       propertyPath: m_Name
-      value: Plank1 (2)
+      value: Plank2
       objectReference: {fileID: 0}
     - target: {fileID: 6739673910828782636, guid: 62676ba4a65d36d4d8cb012fd1315648, type: 3}
       propertyPath: m_LocalScale.x
@@ -2073,6 +2083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlankDoor
   _pui: {fileID: 907371271}
+  itemType: 0
 --- !u!114 &1788802712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2245,7 +2256,7 @@ SceneRoots:
   - {fileID: 8221469820861632118}
   - {fileID: 3606826669343601791}
   - {fileID: 232017448}
-  - {fileID: 1172901248}
   - {fileID: 959808768}
   - {fileID: 1788802704}
   - {fileID: 535542864}
+  - {fileID: 1172901248}

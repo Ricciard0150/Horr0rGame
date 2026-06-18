@@ -7,6 +7,8 @@ public class SettingsManager : MonoBehaviour
         Screen.fullScreenMode = isFullscreen
             ? FullScreenMode.FullScreenWindow
             : FullScreenMode.Windowed;
+
+            Debug.Log("O botão foi clicado! Valor: " + isFullscreen);
     }
 
     public void SetMasterVolume(float volume)

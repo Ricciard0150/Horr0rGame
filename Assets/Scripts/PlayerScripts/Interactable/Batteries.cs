@@ -3,6 +3,8 @@ using UnityEngine;
 public class Batteries : MonoBehaviour, ICollectable
 {
     private Outline outline;
+
+    public ItemType ItemType => ItemType.Battery;
     public void Collect(Transform parent)
     {
         Destroy(gameObject);

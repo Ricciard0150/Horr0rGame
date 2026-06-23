@@ -3,14 +3,24 @@ using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory Instance;
+
     [SerializeField] private float _interactionRange = 3f;
     [SerializeField] private Transform _holdPoint;
 
     private Camera _mainCam;
     private ICollectable _hit;
-    [SerializeField] private PickUpItems _pui;
 
     [SerializeField] private int _batteries;
+
+    private PickUpItems _currentItem;
+
+    public PickUpItems CurrentItem => _currentItem;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -19,10 +29,10 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (!Physics.Raycast(_mainCam.transform.position, _mainCam.transform.forward, out RaycastHit hit, _interactionRange))
+        if (!Physics.Raycast(_mainCam.transform.position, _mainCam.transform.forward,
+            out RaycastHit hit, _interactionRange))
         {
-            _hit?.HideOutline();
-            _hit = null;
+            ClearHit();
             return;
         }
 
@@ -31,16 +41,33 @@ public class Inventory : MonoBehaviour
             if (_hit == collectable)
                 return;
 
-            _hit?.HideOutline();
+            ClearHit();
 
             _hit = collectable;
             _hit.ShowOutline();
         }
         else
         {
-            _hit?.HideOutline();
-            _hit = null;
+            ClearHit();
         }
+    }
+
+    private void ClearHit()
+    {
+        if (_hit != null)
+            _hit.HideOutline();
+
+        _hit = null;
+    }
+
+    public void SetItem(PickUpItems item)
+    {
+        _currentItem = item;
+    }
+
+    public void ClearItem()
+    {
+        _currentItem = null;
     }
 
     public void OnInteract(InputValue value)
@@ -49,23 +76,22 @@ public class Inventory : MonoBehaviour
             return;
 
         _hit.Collect(_holdPoint);
-
     }
+
     public void OnRechange(InputValue value)
     {
         if (_batteries <= 0)
             return;
 
         _batteries--;
-
         GameController.Instance.OnUseBattery.Invoke();
     }
 
     public void OnDrop(InputValue value)
     {
-      
-        _pui.Drop();
+        _currentItem?.Drop();
     }
+
     public void OnUseFlashlight(InputValue value)
     {
         GameController.Instance.OnUseFlashlight.Invoke();

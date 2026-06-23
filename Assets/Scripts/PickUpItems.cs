@@ -1,68 +1,72 @@
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 
 public enum ItemType
 {
-    QueenKey,
-    Hammer,
-    Battery
+    Battery,
+    Flashlight
 }
-
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Outline))]
 public class PickUpItems : MonoBehaviour, ICollectable
 {
+    [SerializeField] private ItemType itemType;
+    public ItemType ItemType => itemType;
+
     private Rigidbody rb;
-    private BoxCollider boxCollider;
+    private BoxCollider col;
     private Outline outline;
 
-    public bool isCollected { get; set; }
+    private bool isCollected;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        boxCollider = GetComponent<BoxCollider>();
+        col = GetComponent<BoxCollider>();
         outline = GetComponent<Outline>();
-        outline.enabled = false;
+
+        HideOutline();
     }
 
     public void Collect(Transform parent)
     {
-        if (isCollected)
-            return;
+        if (isCollected) return;
 
         isCollected = true;
+
+        rb.isKinematic = true;
+        col.enabled = false;
 
         transform.SetParent(parent);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
 
-        rb.isKinematic = true;
-        boxCollider.enabled = false;
-
-        outline.enabled = false;
+        Inventory.Instance.SetItem(this);
     }
+
     public void Drop()
     {
-        if (!isCollected)
-            return;
+        if (!isCollected) return;
+
         isCollected = false;
+
         transform.SetParent(null);
+
         rb.isKinematic = false;
-        boxCollider.enabled = true;
+        col.enabled = true;
+
+        Inventory.Instance.ClearItem();
     }
 
     public void ShowOutline()
     {
-        if (!isCollected)
+        if (outline != null)
             outline.enabled = true;
     }
 
     public void HideOutline()
     {
-        outline.enabled = false;
+        if (outline != null)
+            outline.enabled = false;
     }
 }

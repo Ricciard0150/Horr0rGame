@@ -1,49 +1,47 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(Outline))]
 public class PlankDoor : MonoBehaviour, IInteractable
 {
     private Outline _outline;
     private Rigidbody _rb;
-    private BoxCollider boxCollider;
+    private BoxCollider _col;
 
-    [SerializeField] PickUpItems _pui;
-    public ItemType itemType;
+    [SerializeField] private ItemType itemType;
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+        _col = GetComponent<BoxCollider>();
+        _outline = GetComponent<Outline>();
+
+        _outline.enabled = false;
+    }
+
     public void Interact()
     {
-        if (!_pui.isCollected)
+        if (Inventory.Instance.CurrentItem == null)
             return;
-             _rb.isKinematic = false;
-             boxCollider.enabled = false;
-        
-    }
-    public void HideOutline()
-    {
-        if (_outline != null)
-        {
-            _outline.enabled = false;
-        }
+
+        if (Inventory.Instance.CurrentItem.ItemType != itemType)
+            return;
+
+        _rb.isKinematic = false;
+        _col.enabled = false;
+
+        Inventory.Instance.CurrentItem.Drop();
     }
 
     public void ShowOutline()
     {
         if (_outline != null)
-        {
             _outline.enabled = true;
-        }
     }
 
-    void Start()
+    public void HideOutline()
     {
-        _rb = GetComponent<Rigidbody>();
-        boxCollider = GetComponent<BoxCollider>();
-        _outline = GetComponentInChildren<Outline>();
-        _outline.enabled = false;
-    }
-    public void OnInteract(InputValue value)
-    {
-        Interact();
+        if (_outline != null)
+            _outline.enabled = false;
     }
 }

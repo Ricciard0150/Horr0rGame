@@ -109,27 +109,22 @@ public class Enemy : MonoBehaviour
                 animator.SetBool("IsIdle", false);
                 animator.SetBool("IsChasing", false);
                 animator.SetBool("IsPatroling", true);
-                _agent.SetDestination(_patrolController.MoveToNextPoint()); // Define o próximo ponto de patrulha para o inimigo.
-                StartCoroutine(Patrolling());// Inicia a coroutine de patrulha para o inimigo começar a se mover entre os pontos de patrulha.
+                _agent.SetDestination(_patrolController.MoveToNextPoint()); // Define o próximo ponto de patrulha para o inimigo.               
+                StartCoroutine(Patrolling());
                 break;
         }
     }
     IEnumerator Wait()
     {
-        //Ainda falta implementar a lógica para o inimigo patrulhar, mas a ideia é que quando o inimigo entrar no estado de idle, ele espere um tempo antes de passar para o estado de patrulha, para simular um comportamento mais realista.
         Debug.LogError("Temporário");
-        yield return new WaitUntil(() => _agent.remainingDistance <= _agent.stoppingDistance); // Espera até que o inimigo chegue ao ponto de patrulha antes de definir o próximo ponto.
-        yield return new WaitForSeconds(_waitTime); // 
+        yield return new WaitUntil(() => _agent.remainingDistance >= _agent.stoppingDistance);        
+        yield return new WaitForSeconds(_waitTime);  
         SetState(EnemyState.Patrolling);
     }
     IEnumerator Patrolling()
-    {
-        while (_currentState == EnemyState.Patrolling)
-        {
-            // _agent.SetDestination(_patrolController.MoveToNextPoint()); // Define o próximo ponto de patrulha para o inimigo.
-            yield return new WaitUntil(() => _agent.remainingDistance <= _agent.stoppingDistance); // Espera até que o inimigo chegue ao ponto de patrulha antes de definir o próximo ponto.
-            //Quando chegar aqui, ela terá chego ao ponto de patrulha.
-            SetState(EnemyState.Idle);
-        }
+    {       
+        yield return new WaitUntil(() => _agent.remainingDistance >= _agent.stoppingDistance); // Espera até que o inimigo chegue ao ponto de patrulha antes de definir o próximo ponto.
+        print("Chegou ao ponto de patrulha");
+        SetState(EnemyState.Idle);      
     }
 }

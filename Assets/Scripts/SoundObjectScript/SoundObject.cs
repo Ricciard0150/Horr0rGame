@@ -1,15 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public class SoundObject : MonoBehaviour
-{   
-    void Start()
+{
+    [SerializeField][Range(0.5f, 5)] float _waitTime;
+    IEnumerator Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+       yield return new WaitForSeconds(_waitTime);
+        Destroy(gameObject);
+    }    
 }

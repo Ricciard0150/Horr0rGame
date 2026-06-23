@@ -82,6 +82,7 @@ public class Enemy : MonoBehaviour
                 break;
             case EnemyState.Patrolling:
                 animator.SetBool("IsPatroling", false);
+                print("PatrollingExit");
                 // Lógica para sair do estado Patrolling (a ser implementada)
                 break;
         }
@@ -111,19 +112,20 @@ public class Enemy : MonoBehaviour
                 animator.SetBool("IsPatroling", true);
                 _agent.SetDestination(_patrolController.MoveToNextPoint()); // Define o próximo ponto de patrulha para o inimigo.               
                 StartCoroutine(Patrolling());
+                print("PatrollingEnter");
                 break;
         }
     }
     IEnumerator Wait()
     {
         Debug.LogError("Temporário");
-        yield return new WaitUntil(() => _agent.remainingDistance >= _agent.stoppingDistance);        
+        //yield return new WaitUntil(() => _agent.remainingDistance == _agent.stoppingDistance);        
         yield return new WaitForSeconds(_waitTime);  
         SetState(EnemyState.Patrolling);
     }
     IEnumerator Patrolling()
     {       
-        yield return new WaitUntil(() => _agent.remainingDistance >= _agent.stoppingDistance); // Espera até que o inimigo chegue ao ponto de patrulha antes de definir o próximo ponto.
+        yield return new WaitUntil(() => _agent.remainingDistance == _agent.stoppingDistance); // Espera até que o inimigo chegue ao ponto de patrulha antes de definir o próximo ponto.
         print("Chegou ao ponto de patrulha");
         SetState(EnemyState.Idle);      
     }

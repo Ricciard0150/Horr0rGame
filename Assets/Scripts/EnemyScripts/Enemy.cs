@@ -115,7 +115,7 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator Patrolling()
     {
-        yield return new WaitUntil(() => _agent.remainingDistance == _agent.stoppingDistance); // Espera até que o inimigo chegue ao ponto de patrulha antes de definir o próximo ponto.
+        yield return new WaitUntil(() => _agent.remainingDistance <= _agent.stoppingDistance); // Espera até que o inimigo chegue ao ponto de patrulha antes de definir o próximo ponto.
         print("Chegou ao ponto de patrulha");
         SetState(EnemyState.Idle);
     }

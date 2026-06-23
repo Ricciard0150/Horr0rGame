@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   _patrolController: {fileID: 0}
+  _punchBoxCollider: {fileID: 6384591639912604777}
   _nape: {fileID: 2782205136443718523}
   _player: {fileID: 0}
   _waitTime: 0.5

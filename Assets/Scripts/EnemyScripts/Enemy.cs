@@ -12,6 +12,7 @@ public enum EnemyState
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private PatrolController _patrolController;// Responsável por fornecer os pontos de patrulha para o inimigo, permitindo que ele se mova entre esses pontos quando estiver no estado de patrulha.
+    [SerializeField] private BoxCollider _punchBoxCollider;
     [SerializeField] private GameObject _nape;
     private NavMeshAgent _agent;//Responsável por calcular rotas e mover o inimigo no ambiente usando a navegação do Unity. 
     [SerializeField] private Transform _player;// Referência ao Transform do jogador, que é o alvo que o inimigo irá perseguir.
@@ -24,10 +25,9 @@ public class Enemy : MonoBehaviour
     {
         _player = GameController.Instance.PlayerTransform; // Obtém a referência ao Transform do jogador a partir do GameController, que é um singleton responsável por gerenciar o jogo.
         _agent = GetComponent<NavMeshAgent>();
-
         //enemyPosition = _agent.transform.position.y; // Inicializa a posição do inimigo com a posição atual do GameObject.
         animator = GetComponentInChildren<Animator>();
-
+        _punchBoxCollider.enabled = false;
         if (animator != null)
         {
             animator.SetBool("Spawn", true); // Define o parâmetro "Spawn" como true para iniciar a animação de spawn
@@ -36,18 +36,12 @@ public class Enemy : MonoBehaviour
             animator.SetBool("IsIdle", false);
         }
         print(animator.name);
-        yield return new WaitForSeconds(2f); // Espera 2 segundos para simular o tempo de spawn do inimigo, permitindo que a animação de spawn seja exibida antes de iniciar o comportamento do inimigo.
+        yield return new WaitForSeconds(1f); // Espera 2 segundos para simular o tempo de spawn do inimigo, permitindo que a animação de spawn seja exibida antes de iniciar o comportamento do inimigo.
         animator.SetBool("Spawn", false); // Define o parâmetro "Spawn" como false para finalizar a animação de spawn
         print("chegou");
         SetState(EnemyState.Patrolling);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Vision();       
-    }
-    public void Vision()
+    /*public void VisionbySound()
     {
        
         bool playerInSight = Physics.Linecast(transform.position, _player.position, out RaycastHit hit);
@@ -63,7 +57,7 @@ public class Enemy : MonoBehaviour
             StopAllCoroutines();// Para todas as coroutines em execução, como a de espera para mudar para o estado de patrulha, para garantir que o inimigo comece a perseguir imediatamente.
             SetState(EnemyState.Chasing);
         }        
-    }
+    }*/
     public void SetState(EnemyState newState)
     {
         //O primeiro swwitch é para simular um OnTriggerExit, onde o inimigo para de fazer algo relacionado ao estado anterior, e o segundo switch é para simular um OnTriggerEnter, onde o inimigo começa a fazer algo relacionado ao novo estado.
@@ -77,11 +71,11 @@ public class Enemy : MonoBehaviour
             case EnemyState.Chasing:
                 // Lógica para sair do estado Chasing (a ser implementada)
                 _nape.SetActive(false);
-                _agent.SetDestination(_player.position);
+                //_agent.SetDestination(_player.position);
                 animator.SetBool("IsChasing", false);
                 break;
             case EnemyState.Patrolling:
-                animator.SetBool("IsPatroling", false);               
+                animator.SetBool("IsPatroling", false);
                 // Lógica para sair do estado Patrolling (a ser implementada)
                 break;
         }
@@ -98,11 +92,11 @@ public class Enemy : MonoBehaviour
             case EnemyState.Chasing:
                 // _agent.isStopped = false; // Permite que o inimigo se mova
                 _nape.SetActive(false);
-                _agent.SetDestination(_player.position);
+                //_agent.SetDestination(_player.position);
                 animator.SetBool("IsIdle", false);
                 animator.SetBool("IsChasing", true);
                 animator.SetBool("IsPatroling", false);
-
+                Attack();
                 break;
             case EnemyState.Patrolling:
                 // Lógica para patrulhar (a ser implementada)
@@ -110,19 +104,40 @@ public class Enemy : MonoBehaviour
                 animator.SetBool("IsChasing", false);
                 animator.SetBool("IsPatroling", true);
                 _agent.SetDestination(_patrolController.MoveToNextPoint()); // Define o próximo ponto de patrulha para o inimigo.               
-                StartCoroutine(Patrolling());              
+                StartCoroutine(Patrolling());
                 break;
         }
     }
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(_waitTime);  
+        yield return new WaitForSeconds(_waitTime);
         SetState(EnemyState.Patrolling);
     }
     IEnumerator Patrolling()
-    {       
+    {
         yield return new WaitUntil(() => _agent.remainingDistance == _agent.stoppingDistance); // Espera até que o inimigo chegue ao ponto de patrulha antes de definir o próximo ponto.
         print("Chegou ao ponto de patrulha");
-        SetState(EnemyState.Idle);      
+        SetState(EnemyState.Idle);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<SoundObject>() != null)
+        {
+            SetState(EnemyState.Chasing);
+            _agent.SetDestination(other.transform.position);
+        }
+    }
+    private void Attack()
+    {
+        if (_agent.remainingDistance <= _agent.stoppingDistance)
+        {
+            animator.SetBool("IsPunch", true);
+            _punchBoxCollider.enabled = true;
+        }
+        else
+        {
+            animator.SetBool("IsPunch", false);
+            _punchBoxCollider.enabled = false;
+        }
     }
 }

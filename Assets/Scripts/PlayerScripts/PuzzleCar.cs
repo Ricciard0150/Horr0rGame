@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class PuzzleCar : MonoBehaviour, IInteractable
 {
     private Outline _outline;
-    private Rigidbody _rb;
     private BoxCollider _col;
 
     [SerializeField] private ItemType itemType;
@@ -13,7 +12,6 @@ public class PuzzleCar : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        _rb = GetComponent<Rigidbody>();
         _col = GetComponent<BoxCollider>();
         _outline = GetComponent<Outline>();
 
@@ -30,7 +28,7 @@ public class PuzzleCar : MonoBehaviour, IInteractable
             return;
 
         puzzleCar.SetActive(true);
-        Inventory.Instance.CurrentItem.Drop();
+        Destroy(Inventory.Instance.CurrentItem.gameObject);
     }
 
     public void ShowOutline()

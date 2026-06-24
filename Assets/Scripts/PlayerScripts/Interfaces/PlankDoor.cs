@@ -33,6 +33,7 @@ public class PlankDoor : MonoBehaviour, IInteractable
         Inventory.Instance.CurrentItem.Drop();
     }
 
+
     public void ShowOutline()
     {
         if (_outline != null)

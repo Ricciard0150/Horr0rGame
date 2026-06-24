@@ -43,6 +43,7 @@ public class Interaction : MonoBehaviour, IStatusPlayer
         if (_hit == null)
             return;
         
+        print("Interacting with: " + _hit);
         _hit.Interact();
     }
 }

@@ -324,10 +324,6 @@ PrefabInstance:
       propertyPath: _patrolController
       value: 
       objectReference: {fileID: 1038575228}
-    - target: {fileID: 5891753668882699501, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
-      propertyPath: playerLife
-      value: 
-      objectReference: {fileID: 11400000, guid: fb0b4f8489ca9b7418b3e37bfe16925b, type: 2}
     - target: {fileID: 6334826068141619221, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
       propertyPath: m_Name
       value: Demon_default
@@ -726,14 +722,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4366126510556801157, guid: 2de4721098b6a8e4a8f1c9e2464ee12c, type: 3}
-      propertyPath: _sceneName
-      value: Jumpscare
-      objectReference: {fileID: 0}
-    - target: {fileID: 4366126510556801157, guid: 2de4721098b6a8e4a8f1c9e2464ee12c, type: 3}
-      propertyPath: playerLife
-      value: 
-      objectReference: {fileID: 11400000, guid: fb0b4f8489ca9b7418b3e37bfe16925b, type: 2}
     - target: {fileID: 4366126510556801157, guid: 2de4721098b6a8e4a8f1c9e2464ee12c, type: 3}
       propertyPath: _playerTransform
       value: 

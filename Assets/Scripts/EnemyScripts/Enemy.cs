@@ -107,6 +107,20 @@ public class Enemy : MonoBehaviour
         {
             SetState(EnemyState.Chasing);
             _agent.SetDestination(other.transform.position);
+            bool playerInSight = Physics.Linecast(transform.position, _player.position, out RaycastHit hit);
+            if (playerInSight)
+            { //no veo nadica de pyoer
+                if (_currentState.Equals(EnemyState.Chasing))
+                    SetState(EnemyState.Idle);               
+            }
+            else
+            {
+                if (_currentState.Equals(EnemyState.Chasing))
+                    return;
+                StopAllCoroutines();// Para todas as coroutines em execução, como a de espera para mudar para o estado de patrulha, para garantir que o inimigo comece a perseguir imediatamente.
+                SetState(EnemyState.Chasing);
+                _agent.SetDestination(_player.position);
+            }
         }       
     }
 
@@ -125,6 +139,7 @@ public class Enemy : MonoBehaviour
         _punchBoxCollider.enabled = true;
         yield return new WaitForSeconds(0.8f); 
         animator.SetBool("IsPunch", false);
-        _punchBoxCollider.enabled = false;        
+        _punchBoxCollider.enabled = false;    
+        yield return new WaitForSeconds(2f); 
     }
 }

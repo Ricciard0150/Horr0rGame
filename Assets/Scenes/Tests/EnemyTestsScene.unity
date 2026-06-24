@@ -723,6 +723,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4366126510556801157, guid: 2de4721098b6a8e4a8f1c9e2464ee12c, type: 3}
+      propertyPath: _sceneName
+      value: Jumpscare
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366126510556801157, guid: 2de4721098b6a8e4a8f1c9e2464ee12c, type: 3}
+      propertyPath: playerLife
+      value: 
+      objectReference: {fileID: 11400000, guid: fb0b4f8489ca9b7418b3e37bfe16925b, type: 2}
+    - target: {fileID: 4366126510556801157, guid: 2de4721098b6a8e4a8f1c9e2464ee12c, type: 3}
       propertyPath: _playerTransform
       value: 
       objectReference: {fileID: 2902277}

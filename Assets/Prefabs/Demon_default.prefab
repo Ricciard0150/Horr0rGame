@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1718cf2e994c40e4f9c5ba08a0293cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  playerLife: {fileID: 11400000, guid: fb0b4f8489ca9b7418b3e37bfe16925b, type: 2}
 --- !u!1 &6568706143511174688 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c3d73ba06daaeef40b556c623d33fc02, type: 3}

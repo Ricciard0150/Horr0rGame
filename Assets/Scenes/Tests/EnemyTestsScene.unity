@@ -324,6 +324,10 @@ PrefabInstance:
       propertyPath: _patrolController
       value: 
       objectReference: {fileID: 1038575228}
+    - target: {fileID: 5891753668882699501, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
+      propertyPath: playerLife
+      value: 
+      objectReference: {fileID: 11400000, guid: fb0b4f8489ca9b7418b3e37bfe16925b, type: 2}
     - target: {fileID: 6334826068141619221, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
       propertyPath: m_Name
       value: Demon_default
@@ -684,8 +688,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 1, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 24.551239, y: 1, z: 10}
+  m_Center: {x: -2.0674777, y: 0, z: 0}
 --- !u!114 &1527192765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,7 +697,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527192763}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f46558fd3b2f22469428f829dd51fbf, type: 3}
   m_Name: 
@@ -708,7 +712,7 @@ Transform:
   m_GameObject: {fileID: 1527192763}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.09, y: 1.53, z: 13.58}
+  m_LocalPosition: {x: -9.16, y: 1.53, z: 6.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

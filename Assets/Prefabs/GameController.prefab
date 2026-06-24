@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f14590a320e82e5438bc0e629cc2bc15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
+  playerLife: {fileID: 11400000, guid: fb0b4f8489ca9b7418b3e37bfe16925b, type: 2}
+  _sceneName: Jumpscare
   _playerTransform: {fileID: 0}
   _patrolController: {fileID: 0}
   _pickUpItems: {fileID: 0}

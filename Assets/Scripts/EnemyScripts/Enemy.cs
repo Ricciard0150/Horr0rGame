@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements.Experimental;
 
 public enum EnemyState
 {
@@ -41,23 +40,7 @@ public class Enemy : MonoBehaviour
         print("chegou");
         SetState(EnemyState.Patrolling);
     }
-    /*public void VisionbySound()
-    {
-       
-        bool playerInSight = Physics.Linecast(transform.position, _player.position, out RaycastHit hit);
-        if (playerInSight)
-        { //no veo nadica de pyoer
-            if (_currentState.Equals(EnemyState.Chasing))
-                SetState(EnemyState.Idle);          
-        }
-        else
-        {//Aqui o enemy persegue o jogador
-            if (_currentState.Equals(EnemyState.Chasing))// Se já estiver no estado de perseguição, passa a ficar idle.
-                return;
-            StopAllCoroutines();// Para todas as coroutines em execução, como a de espera para mudar para o estado de patrulha, para garantir que o inimigo comece a perseguir imediatamente.
-            SetState(EnemyState.Chasing);
-        }        
-    }*/
+   
     public void SetState(EnemyState newState)
     {
         //O primeiro swwitch é para simular um OnTriggerExit, onde o inimigo para de fazer algo relacionado ao estado anterior, e o segundo switch é para simular um OnTriggerEnter, onde o inimigo começa a fazer algo relacionado ao novo estado.
@@ -95,8 +78,7 @@ public class Enemy : MonoBehaviour
                 //_agent.SetDestination(_player.position);
                 animator.SetBool("IsIdle", false);
                 animator.SetBool("IsChasing", true);
-                animator.SetBool("IsPatroling", false);
-                Attack();
+                animator.SetBool("IsPatroling", false);                
                 break;
             case EnemyState.Patrolling:
                 // Lógica para patrulhar (a ser implementada)
@@ -125,19 +107,24 @@ public class Enemy : MonoBehaviour
         {
             SetState(EnemyState.Chasing);
             _agent.SetDestination(other.transform.position);
+        }       
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            SetState(EnemyState.Chasing);
+            _agent.SetDestination(_player.position);
+            StartCoroutine(Attack());
         }
     }
-    private void Attack()
+    IEnumerator Attack()
     {
-        if (_agent.remainingDistance <= _agent.stoppingDistance)
-        {
-            animator.SetBool("IsPunch", true);
-            _punchBoxCollider.enabled = true;
-        }
-        else
-        {
-            animator.SetBool("IsPunch", false);
-            _punchBoxCollider.enabled = false;
-        }
+        animator.SetBool("IsPunch", true);
+        _punchBoxCollider.enabled = true;
+        yield return new WaitForSeconds(0.8f); 
+        animator.SetBool("IsPunch", false);
+        _punchBoxCollider.enabled = false;        
     }
 }

@@ -30,7 +30,10 @@ public class PickUpItems : MonoBehaviour, ICollectable
 
     public void Collect(Transform parent)
     {
-        if (isCollected) return;
+        if (Inventory.Instance.CurrentItem != null)
+        {
+            Inventory.Instance.CurrentItem.Drop();
+        }
 
         isCollected = true;
 
@@ -57,7 +60,6 @@ public class PickUpItems : MonoBehaviour, ICollectable
 
         Inventory.Instance.ClearItem();
     }
-
     public void ShowOutline()
     {
         if (outline != null)

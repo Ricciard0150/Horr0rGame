@@ -317,17 +317,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1374693650445912055, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
+      propertyPath: _nape
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374693650445912055, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 2902277}
     - target: {fileID: 1374693650445912055, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
+      propertyPath: _chasingArea
+      value: 
+      objectReference: {fileID: 1614494453}
+    - target: {fileID: 1374693650445912055, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
       propertyPath: _patrolController
       value: 
       objectReference: {fileID: 1038575228}
-    - target: {fileID: 5891753668882699501, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
-      propertyPath: playerLife
+    - target: {fileID: 1374693650445912055, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
+      propertyPath: _activationAttackArea
       value: 
-      objectReference: {fileID: 11400000, guid: fb0b4f8489ca9b7418b3e37bfe16925b, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6334826068141619221, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
       propertyPath: m_Name
       value: Demon_default
@@ -374,7 +382,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6334826068141619242, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1614494452}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
 --- !u!1001 &1038575227
@@ -651,6 +662,11 @@ Transform:
   - {fileID: 1038575229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1468091131 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6334826068141619242, guid: 5bba62d8b65dae44898012275d24ba9e, type: 3}
+  m_PrefabInstance: {fileID: 647886830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1527192763
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +734,87 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1614494451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1614494452}
+  - component: {fileID: 1614494453}
+  - component: {fileID: 1614494454}
+  m_Layer: 0
+  m_Name: ChasingArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1614494452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614494451}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1468091131}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1614494453
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614494451}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 20, y: 2.9423697, z: 20}
+  m_Center: {x: -0.4452634, y: 1.1277963, z: 0}
+--- !u!54 &1614494454
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614494451}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1879729995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -726,14 +823,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4366126510556801157, guid: 2de4721098b6a8e4a8f1c9e2464ee12c, type: 3}
-      propertyPath: _sceneName
-      value: Jumpscare
-      objectReference: {fileID: 0}
-    - target: {fileID: 4366126510556801157, guid: 2de4721098b6a8e4a8f1c9e2464ee12c, type: 3}
-      propertyPath: playerLife
-      value: 
-      objectReference: {fileID: 11400000, guid: fb0b4f8489ca9b7418b3e37bfe16925b, type: 2}
     - target: {fileID: 4366126510556801157, guid: 2de4721098b6a8e4a8f1c9e2464ee12c, type: 3}
       propertyPath: _playerTransform
       value: 

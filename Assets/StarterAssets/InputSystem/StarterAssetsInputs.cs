@@ -24,7 +24,7 @@ namespace StarterAssets
 		public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
-			Debug.Log("Move: " + move);
+			//Debug.Log("Move: " + move);
         }
 
 		public void OnLook(InputValue value)

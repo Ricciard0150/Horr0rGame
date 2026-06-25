@@ -20,11 +20,12 @@ public class Hide : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        print("ADAM");
+        print("a1");
 
         if (!isHidden)
-        {
+        { 
             _player.position = _hideSpot.position;
+            print("a2");
             isHidden = true;
         }
         else

@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: Vision
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: 9059e055aa673b3469a5c2896c0b8fb5, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4866308013681773254}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.246, z: 0.34}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -152,7 +152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   _patrolController: {fileID: 0}
   _punchBoxCollider: {fileID: 6384591639912604777}
-  _nape: {fileID: 0}
   _player: {fileID: 0}
   _waitTime: 0.5
   animator: {fileID: 6334826067895158095}

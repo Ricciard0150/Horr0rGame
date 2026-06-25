@@ -112,7 +112,6 @@ public class Enemy : MonoBehaviour
             _agent.SetDestination(other.transform.position);            
         }       
     }
-
     private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<FirstPersonController>() != null)
@@ -120,7 +119,14 @@ public class Enemy : MonoBehaviour
             StopCoroutine(Patrolling());
             StopCoroutine(Wait());
             StartCoroutine(Attack());            
-        }     
+        }  
+        if(other.GetComponent<SoundObject>() != null)
+        {
+            StopCoroutine(Patrolling());
+            StopCoroutine(Wait());
+            SetState(EnemyState.Chasing);
+            _agent.SetDestination(other.transform.position);            
+        }
     }
     private void OnTriggerExit(Collider other)
     {

@@ -7,6 +7,6 @@ public class SoundObject : MonoBehaviour
     IEnumerator Start()
     {
        yield return new WaitForSeconds(_waitTime);
-        Destroy(gameObject);
+       gameObject.SetActive(false);
     }    
 }

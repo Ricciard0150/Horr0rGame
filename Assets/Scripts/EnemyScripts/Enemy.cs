@@ -11,13 +11,25 @@ public enum EnemyState
 }
 public class Enemy : MonoBehaviour
 {
+    [Header("Patrol Controller")]
     [SerializeField] private PatrolController _patrolController;// Responsável por fornecer os pontos de patrulha para o inimigo, permitindo que ele se mova entre esses pontos quando estiver no estado de patrulha.
-    [SerializeField] private BoxCollider _punchBoxCollider;   
-    private NavMeshAgent _agent;//Responsável por calcular rotas e mover o inimigo no ambiente usando a navegação do Unity. 
+    [Space]
+    [Header("NavMeshAgent")]
+    private NavMeshAgent _agent;//Responsável por calcular rotas e mover o inimigo no ambiente usando a navegação do Unity.     
+    [Space]
+    [Header("PlayerInteractions")]
+    [SerializeField] private BoxCollider _punchBoxCollider;  
     [SerializeField] private Transform _player;// Referência ao Transform do jogador, que é o alvo que o inimigo irá perseguir.  
+    [Space]
+    [Header("State")]
     private EnemyState _currentState = EnemyState.Idle;// Variável para armazenar o estado atual do inimigo, que pode ser Idle, Chasing ou Patrolling.
+    [Space]
+    [Header("WaitTime")]
     [SerializeField][Range(0.5f, 5)] private float _waitTime;
+    [Space]
+    [Header("Animator")]
     [SerializeField] private Animator animator;   
+
     IEnumerator Start()
     {
         _player = GameController.Instance.PlayerTransform; // Obtém a referência ao Transform do jogador a partir do GameController, que é um singleton responsável por gerenciar o jogo.
@@ -34,8 +46,7 @@ public class Enemy : MonoBehaviour
         }
         print(animator.name);
         yield return new WaitForSeconds(1f); // Espera 2 segundos para simular o tempo de spawn do inimigo, permitindo que a animação de spawn seja exibida antes de iniciar o comportamento do inimigo.
-        animator.SetBool("Spawn", false); // Define o parâmetro "Spawn" como false para finalizar a animação de spawn
-        print("chegou");
+        animator.SetBool("Spawn", false); // Define o parâmetro "Spawn" como false para finalizar a animação de spawn        
         SetState(EnemyState.Patrolling);
     }   
     
@@ -88,14 +99,15 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator Patrolling()
     {
-        yield return new WaitUntil(() => _agent.remainingDistance <= _agent.stoppingDistance); // Espera até que o inimigo chegue ao ponto de patrulha antes de definir o próximo ponto.
-        print("Chegou ao ponto de patrulha");
+        yield return new WaitUntil(() => _agent.remainingDistance <= _agent.stoppingDistance); // Espera até que o inimigo chegue ao ponto de patrulha antes de definir o próximo ponto.        
         SetState(EnemyState.Idle);
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<SoundObject>() != null)
         {
+            StopCoroutine(Patrolling());
+            StopCoroutine(Wait());
             SetState(EnemyState.Chasing);
             _agent.SetDestination(other.transform.position);            
         }       
@@ -104,9 +116,10 @@ public class Enemy : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<FirstPersonController>() != null)
-        {         
-            StartCoroutine(Attack());
-            print ("Atacando");       
+        {
+            StopCoroutine(Patrolling());
+            StopCoroutine(Wait());
+            StartCoroutine(Attack());            
         }     
     }
     private void OnTriggerExit(Collider other)

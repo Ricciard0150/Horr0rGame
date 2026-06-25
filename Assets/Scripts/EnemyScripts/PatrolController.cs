@@ -21,7 +21,7 @@ public class PatrolController : MonoBehaviour
         _currentPointIndex++;
         if(_currentPointIndex >= _patrolPoints.Length)
             _currentPointIndex = 0; 
-        print ("next patrol point: " + nextPoint);
+        //print ("next patrol point: " + nextPoint);
         return nextPoint;
     }
 }

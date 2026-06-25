@@ -1,3 +1,4 @@
+using StarterAssets;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -6,7 +7,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private PlayerLife playerLife;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.GetComponent<FirstPersonController>() != null)
         {
             playerLife.ReduceLife(1);
             if(playerLife.GetCurrentLife() <= 0)

@@ -22,7 +22,7 @@ public class Interaction : MonoBehaviour, IStatusPlayer
       
         if (hit.collider.TryGetComponent(out IInteractable interactable))
         {
-            if (_hit == interactable)// SE FOR O MESMO OBJETO NAO FAÇA NADA 
+            if (_hit == interactable)// SE FOR O MESMO OBJETO NAO FAï¿½A NADA 
                 return;
             
             _hit?.HideOutline();

@@ -1,16 +1,21 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class DoorAnim : MonoBehaviour
+public class DoorInteract : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [Header("Movimento do Player")]
+    public Transform walkTarget;
+    public WalkToHide playerWalk;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private Transform _player;
+    [SerializeField] private Transform _target;
+
+    public void MovePlayerToDoor()
     {
-        
+        if (playerWalk != null && walkTarget != null)
+        {
+            _player.position = _target.position;
+            playerWalk.StartWalkingTo(walkTarget);
+        }
     }
 }

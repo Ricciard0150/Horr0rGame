@@ -3,46 +3,39 @@ using System.Collections;
 
 public class PlayerHiding : MonoBehaviour
 {
-    public float waitTime = 3f;
     public float speed = 2f;
+    public float rotationSpeed = 180f;
 
     private CharacterController characterController;
     private MonoBehaviour firstPersonController;
-    private MonoBehaviour[] allScripts;
-    private bool isWalking = false;
 
-    private Animator an;
+    private bool isBusy;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         firstPersonController = GetComponent<StarterAssets.FirstPersonController>();
-        allScripts = GetComponents<MonoBehaviour>();
-        an = GetComponentInParent<Animator>();
     }
 
-    public void StartWalkingTo(Transform target)
+    public void MoveTo(Transform target)
     {
-        if (isWalking || target == null) return;
-        StartCoroutine(WaitAndWalk(target));
-        StartCoroutine(WaitToTurn());
+        if (isBusy || target == null) return;
+
+        StartCoroutine(MoveRoutine(target));
     }
 
-    IEnumerator WaitAndWalk(Transform target)
+    public void ExitFrom(Transform target)
     {
-        isWalking = true;
+        if (isBusy || target == null) return;
 
-        if (characterController != null)
-            characterController.enabled = false;
-        if (firstPersonController != null)
-            firstPersonController.enabled = false;
-        foreach (var script in allScripts)
-        {
-            if (script != this)
-                script.enabled = false;
-        }
+        StartCoroutine(ExitRoutine(target));
+    }
 
-        yield return new WaitForSeconds(waitTime);
+    IEnumerator MoveRoutine(Transform target)
+    {
+        isBusy = true;
+
+        DisablePlayer();
 
         while (Vector3.Distance(transform.position, target.position) > 0.1f)
         {
@@ -51,32 +44,80 @@ public class PlayerHiding : MonoBehaviour
                 target.position,
                 Time.deltaTime * speed
             );
+
             yield return null;
         }
 
         transform.position = target.position;
 
-        if (characterController != null)
+        yield return Rotate180();
+
+        isBusy = false;
+    }
+
+    IEnumerator ExitRoutine(Transform target)
+    {
+        isBusy = true;
+
+        while (Vector3.Distance(transform.position, target.position) > 0.1f)
         {
-            characterController.enabled = true;
-            characterController.transform.position = target.position;
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                target.position,
+                Time.deltaTime * speed
+            );
+
+            yield return null;
         }
+
+
+        yield return Rotate180();
+
+        transform.position = target.position;
+
+        EnablePlayer();
+
+        isBusy = false;
+    }
+
+    IEnumerator Rotate180()
+    {
+        Quaternion startRot = transform.rotation;
+        Quaternion targetRot = startRot * Quaternion.Euler(0, 180f, 0);
+
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime * (rotationSpeed / 180f);
+
+            transform.rotation = Quaternion.Slerp(
+                startRot,
+                targetRot,
+                t
+            );
+
+            yield return null;
+        }
+
+        transform.rotation = targetRot;
+    }
+
+    void DisablePlayer()
+    {
+        if (characterController != null)
+            characterController.enabled = false;
+
+        if (firstPersonController != null)
+            firstPersonController.enabled = false;
+    }
+
+    void EnablePlayer()
+    {
+        if (characterController != null)
+            characterController.enabled = true;
+
         if (firstPersonController != null)
             firstPersonController.enabled = true;
-        foreach (var script in allScripts)
-        {
-            if (script != this)
-                script.enabled = true;
-        }
-
-        isWalking = false;
-        Debug.Log($"Cheguei em: {target.name}");
-    }
-    IEnumerator WaitToTurn()
-    {
-        yield return new WaitForSeconds(1.1f);
-
-        an.Play("PlayerEnteringHidePlace");
     }
 }
-

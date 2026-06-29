@@ -1,23 +1,31 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class DoorInteract : MonoBehaviour
 {
-    [Header("Movimento do Player")]
-    public Transform walkTarget;
-    public PlayerHiding playerWalk;
+    [Header("Pontos")]
+    [SerializeField] private Transform hideSpot;
+    [SerializeField] private Transform exitSpot;
 
-    [SerializeField] private Transform _player;
-    [SerializeField] private Transform _target;
+    [Header("Player")]
+    [SerializeField] private PlayerHiding player;
 
+    private bool isInside;
 
-    public void MovePlayerToDoor()
+    public void EnterLocker()
     {
-        if (playerWalk != null && walkTarget != null)
-        {
-            _player.position = _target.position;
-            playerWalk.StartWalkingTo(walkTarget);
-        }
+        if (isInside) return;
+
+        player.MoveTo(hideSpot);
+
+        isInside = true;
+    }
+
+    public void ExitLocker()
+    {
+        if (!isInside) return;
+
+        player.ExitFrom(exitSpot);
+
+        isInside = false;
     }
 }
-

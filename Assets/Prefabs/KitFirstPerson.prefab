@@ -741,6 +741,10 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2691219265408880190, guid: 69ee4a20e9a0a58429e2f3f8ea981b3b, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691219265408880190, guid: 69ee4a20e9a0a58429e2f3f8ea981b3b, type: 3}
       propertyPath: ShapeModule.angle
       value: 25
       objectReference: {fileID: 0}

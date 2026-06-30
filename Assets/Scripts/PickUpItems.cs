@@ -3,7 +3,10 @@ using UnityEngine;
 public enum ItemType
 {
     Battery,
-    Flashlight
+    Key,
+    RightCarDoor,
+    LeftCarDoor,
+    Hammer,
 }
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]

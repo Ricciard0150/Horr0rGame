@@ -10,6 +10,7 @@ public class PuzzleCar : MonoBehaviour, IInteractable
     [SerializeField] private ItemType itemType;
     [SerializeField] private GameObject puzzleCar;
 
+    public int counter = 0;
     private void Start()
     {
         _col = GetComponent<BoxCollider>();
@@ -24,11 +25,17 @@ public class PuzzleCar : MonoBehaviour, IInteractable
         if (Inventory.Instance.CurrentItem == null)
             return;
 
-        if (Inventory.Instance.CurrentItem.ItemType !=  ItemType.Flashlight)
+        if (Inventory.Instance.CurrentItem.ItemType !=  ItemType.RightCarDoor)
             return;
 
         puzzleCar.SetActive(true);
+        counter++;
         Destroy(Inventory.Instance.CurrentItem.gameObject);
+
+        if(counter == 2)
+        {
+           print("Puzzle Car is complete!");
+        }
     }
 
     public void ShowOutline()

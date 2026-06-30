@@ -5,6 +5,7 @@ public class PlayerLife : ScriptableObject
 {
     private float _maxLife = 4;
     [SerializeField] private float _currentLife = 4;
+    [SerializeField] private GameObject[] _bloodScreens;
     private void OnEnable()
     {
         _currentLife = 4; 

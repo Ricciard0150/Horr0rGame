@@ -3,10 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerLife", menuName = "ScriptableObjects/PlayerLife", order = 1)]
 public class PlayerLife : ScriptableObject
 {
-    [SerializeField] private float _currentLife = 3;
+    private float _maxLife = 4;
+    [SerializeField] private float _currentLife = 4;
     private void OnEnable()
     {
-        _currentLife = 3; 
+        _currentLife = 4; 
     }
 
     public void ReduceLife(float amount)

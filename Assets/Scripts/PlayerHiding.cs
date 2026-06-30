@@ -11,6 +11,9 @@ public class PlayerHiding : MonoBehaviour
 
     private bool isBusy;
 
+    [SerializeField] private Transform player;
+    [SerializeField] private Transform entering;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -19,8 +22,11 @@ public class PlayerHiding : MonoBehaviour
 
     public void MoveTo(Transform target)
     {
+        player = GetComponent<CharacterController>().transform;
+
         if (isBusy || target == null) return;
 
+        player.position = entering.position;
         StartCoroutine(MoveRoutine(target));
     }
 

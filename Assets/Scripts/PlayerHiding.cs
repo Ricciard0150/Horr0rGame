@@ -8,6 +8,7 @@ public class PlayerHiding : MonoBehaviour
 
     private CharacterController characterController;
     private MonoBehaviour firstPersonController;
+    [SerializeField] private PlayerHiding ph;
 
     private bool isBusy;
 

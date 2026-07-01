@@ -5,6 +5,7 @@ public class DoorInteract : MonoBehaviour
     [Header("Pontos")]
     [SerializeField] private Transform hideSpot;
     [SerializeField] private Transform exitSpot;
+    [SerializeField] private Transform entering;
 
     [Header("Player")]
     [SerializeField] private PlayerHiding player;

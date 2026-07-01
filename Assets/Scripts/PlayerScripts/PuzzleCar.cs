@@ -25,16 +25,20 @@ public class PuzzleCar : MonoBehaviour, IInteractable
         if (Inventory.Instance.CurrentItem == null)
             return;
 
-        if (Inventory.Instance.CurrentItem.ItemType !=  ItemType.RightCarDoor)
-            return;
-
-        puzzleCar.SetActive(true);
-        counter++;
-        Destroy(Inventory.Instance.CurrentItem.gameObject);
-
-        if(counter == 2)
+        switch (Inventory.Instance.CurrentItem.ItemType)
         {
-           print("Puzzle Car is complete!");
+            case ItemType.RightCarDoor:
+            case ItemType.LeftCarDoor:
+
+                puzzleCar.SetActive(true);
+
+                GameController.Instance.AddCarPiece();
+
+                Destroy(Inventory.Instance.CurrentItem.gameObject);
+                break;
+
+            default:
+                return;
         }
     }
 

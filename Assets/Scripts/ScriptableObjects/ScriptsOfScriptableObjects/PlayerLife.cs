@@ -31,6 +31,6 @@ public class PlayerLife : ScriptableObject
             _currentLife = _maxLife;
             return;
         }       
-        _currentLife += regen;
+        _currentLife += regen;       
     }
 }

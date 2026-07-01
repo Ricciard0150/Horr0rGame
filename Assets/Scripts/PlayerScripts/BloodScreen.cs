@@ -43,39 +43,39 @@ public class BloodScreen : MonoBehaviour
                 break;
 
             case BloodState.FirstHit:
-                bloodScreen._bloodScreens[1].SetActive(false);
+                bloodScreen._bloodScreens[0].SetActive(false);
                 StopAllCoroutines();
                 break;
 
             case BloodState.SecondHit:
-                bloodScreen._bloodScreens[2].SetActive(false);
+                bloodScreen._bloodScreens[1].SetActive(false);
                 StopAllCoroutines();
                 break;
 
             case BloodState.thirdHit:
-                bloodScreen._bloodScreens[3].SetActive(false);                
+                bloodScreen._bloodScreens[2].SetActive(false);                
                 break;
         }
         _currentState = newState;
         switch (_currentState)
         { 
             case BloodState.None:
-                bloodScreen._bloodScreens[bloodScreen._bloodScreens.Length - 1 - 2 - 3].SetActive(false); 
+                bloodScreen._bloodScreens[bloodScreen._bloodScreens.Length - 0 - 1 - 2].SetActive(false); 
                 StopAllCoroutines();
             break;
 
             case BloodState.FirstHit:
-                bloodScreen._bloodScreens[1].SetActive(true);
+                bloodScreen._bloodScreens[0].SetActive(true);
                 StartCoroutine(HealthRegenerator());
             break;
 
             case BloodState.SecondHit:
-                bloodScreen._bloodScreens[2].SetActive(true);
+                bloodScreen._bloodScreens[1].SetActive(true);
                 StartCoroutine(HealthRegenerator());
             break;
 
             case BloodState.thirdHit:
-                bloodScreen._bloodScreens[3].SetActive (true);
+                bloodScreen._bloodScreens[2].SetActive (true);
                 StartCoroutine(HealthRegenerator());
             break;
         }
@@ -87,6 +87,19 @@ public class BloodScreen : MonoBehaviour
         {
             yield return new WaitForSeconds(lifeRegenerator);
             playerLife.GetRegen(1);
+            print(playerLife.GetCurrentLife().ToString());
+            if (playerLife.GetCurrentLife() == playerLife._maxLife) 
+            { 
+                SetState(BloodState.None);
+            }
+            if(playerLife.GetCurrentLife() == 3)
+                SetState(BloodState.FirstHit);
+
+            if (playerLife.GetCurrentLife() == 2)
+                SetState(BloodState.SecondHit);
+
+            if (playerLife.GetCurrentLife() == 1)
+                SetState(BloodState.thirdHit);
         }
     }
 }

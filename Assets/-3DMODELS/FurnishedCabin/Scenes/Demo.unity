@@ -2793,14 +2793,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cyberpunk_Car
       objectReference: {fileID: 0}
-    - target: {fileID: 4661970886773016553, guid: 7232c38a1d5ef634a8a89bcd87abf69a, type: 3}
-      propertyPath: m_LODs.Array.data[1].renderers.Array.data[2].renderer
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4661970886773016553, guid: 7232c38a1d5ef634a8a89bcd87abf69a, type: 3}
-      propertyPath: m_LODs.Array.data[2].renderers.Array.data[2].renderer
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

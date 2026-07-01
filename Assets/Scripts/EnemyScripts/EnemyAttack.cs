@@ -5,12 +5,14 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private PlayerLife playerLife;
+    [SerializeField] private BloodScreen bloodScreen;
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<FirstPersonController>() != null)
         {
             playerLife.ReduceLife(1);
-            if(playerLife.GetCurrentLife() <= 0)
+            bloodScreen.ShowBloodScreen();
+            if (playerLife.GetCurrentLife() <= 0)
             {
                 GameController.Instance.PlayerDie();
             }

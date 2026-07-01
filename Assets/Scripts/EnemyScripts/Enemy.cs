@@ -43,8 +43,7 @@ public class Enemy : MonoBehaviour
             animator.SetBool("IsChasing", false);
             animator.SetBool("IsPatroling", false);
             animator.SetBool("IsIdle", false);
-        }
-        print(animator.name);
+        }        
         yield return new WaitForSeconds(1f); // Espera 2 segundos para simular o tempo de spawn do inimigo, permitindo que a animação de spawn seja exibida antes de iniciar o comportamento do inimigo.
         animator.SetBool("Spawn", false); // Define o parâmetro "Spawn" como false para finalizar a animação de spawn        
         SetState(EnemyState.Patrolling);

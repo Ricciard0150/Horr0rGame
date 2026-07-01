@@ -3,10 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerLife", menuName = "ScriptableObjects/PlayerLife", order = 1)]
 public class PlayerLife : ScriptableObject
 {
-    [SerializeField] private float _currentLife = 3;
+    public float _maxLife = 4;
+    [SerializeField] private float _currentLife = 4;    
     private void OnEnable()
     {
-        _currentLife = 3; 
+        _currentLife = 4; 
     }
 
     public void ReduceLife(float amount)
@@ -21,5 +22,15 @@ public class PlayerLife : ScriptableObject
     public float GetCurrentLife()
     {
         return _currentLife;
+    }
+
+    public void GetRegen (float regen)
+    {
+        if (_currentLife >= _maxLife)
+        {
+            _currentLife = _maxLife;
+            return;
+        }       
+        _currentLife += regen;       
     }
 }

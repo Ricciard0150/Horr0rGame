@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e847e6991876b54f90295b93778efdf, type: 3}
   m_Name: PlayerStatus
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLife
-  _currentLife: 3
+  _currentLife: 4
+  _bloodScreens:
+  - {fileID: 0}
+  - {fileID: 4414437921499854934, guid: b8b6604add653b84e8efb39e2e53a9b9, type: 3}
+  - {fileID: 1616196881603789049, guid: 101076d97bb57364ea1db167d7fc303c, type: 3}
+  - {fileID: 294096234180094854, guid: c90aa5192f683e04c97a2b14c1c36c55, type: 3}

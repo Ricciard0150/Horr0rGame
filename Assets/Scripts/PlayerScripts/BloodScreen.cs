@@ -14,10 +14,10 @@ public class BloodScreen : MonoBehaviour
     [SerializeField]private GameObject[] _bloodScreens;
     [SerializeField][Range(0.5f, 20)] private float lifeRegenerator;   
     private BloodState _currentState;
-    void Start()
+   /* void Start()
     {
         playerLife = GetComponent<PlayerLife>();        
-    }
+    }*/
     public void ShowBloodScreen()
     {
         if (playerLife == null) 
@@ -85,10 +85,8 @@ public class BloodScreen : MonoBehaviour
     {
         if (playerLife.GetCurrentLife() <= playerLife._maxLife)
         {
-            yield return new WaitForSeconds(lifeRegenerator);
-            print(playerLife.GetCurrentLife().ToString() + "1");
-            playerLife.GetRegen(1);
-            print(playerLife.GetCurrentLife().ToString() + "2");
+            yield return new WaitForSeconds(lifeRegenerator);            
+            playerLife.GetRegen(1);           
             if (playerLife.GetCurrentLife() == playerLife._maxLife) 
             { 
                 SetState(BloodState.None);

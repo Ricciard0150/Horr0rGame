@@ -21,26 +21,26 @@ public class PuzzleCar : MonoBehaviour, IInteractable
     }
 
     public void Interact()
+{
+    if (Inventory.Instance.CurrentItem == null)
+        return;
+
+    switch (Inventory.Instance.CurrentItem.ItemType)
     {
-        if (Inventory.Instance.CurrentItem == null)
+        case ItemType.RightCarDoor:
+        case ItemType.LeftCarDoor:
+
+            puzzleCar.SetActive(true);
+
+            GameController.Instance.AddCarPiece();
+
+            Destroy(Inventory.Instance.CurrentItem.gameObject);
+            break;
+
+        default:
             return;
-
-        switch (Inventory.Instance.CurrentItem.ItemType)
-        {
-            case ItemType.RightCarDoor:
-            case ItemType.LeftCarDoor:
-
-                puzzleCar.SetActive(true);
-
-                GameController.Instance.AddCarPiece();
-
-                Destroy(Inventory.Instance.CurrentItem.gameObject);
-                break;
-
-            default:
-                return;
-        }
     }
+}
 
     public void ShowOutline()
     {

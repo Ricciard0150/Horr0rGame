@@ -3,17 +3,15 @@ using System.Collections;
 
 public class PlayerHiding : MonoBehaviour
 {
+    [Header("Movement Settings")]
     public float speed = 2f;
     public float rotationSpeed = 180f;
 
     private CharacterController characterController;
     private MonoBehaviour firstPersonController;
-    [SerializeField] private PlayerHiding ph;
-
     private bool isBusy;
-
-    [SerializeField] private Transform player;
-    [SerializeField] private Transform entering;
+    private Transform currentExitSpot;
+    private Transform currentLocker;
 
     void Start()
     {
@@ -21,69 +19,70 @@ public class PlayerHiding : MonoBehaviour
         firstPersonController = GetComponent<StarterAssets.FirstPersonController>();
     }
 
-    public void MoveTo(Transform target)
+    public void MoveTo(Transform hideSpot, Transform entering, Transform exitSpot, Transform locker)
     {
-        player = GetComponent<CharacterController>().transform;
+        if (isBusy || hideSpot == null || entering == null || exitSpot == null || locker == null) return;
 
-        if (isBusy || target == null) return;
-
-        player.position = entering.position;
-        StartCoroutine(MoveRoutine(target));
+        currentExitSpot = exitSpot;
+        currentLocker = locker;
+        StartCoroutine(MoveRoutine(hideSpot, entering, locker));
     }
 
-    public void ExitFrom(Transform target)
+    public void ExitFrom()
     {
-        if (isBusy || target == null) return;
+        if (isBusy || currentExitSpot == null) return;
 
-        StartCoroutine(ExitRoutine(target));
+        StartCoroutine(ExitRoutine(currentExitSpot));
+        currentExitSpot = null;
+        currentLocker = null;
     }
 
-    IEnumerator MoveRoutine(Transform target)
+    IEnumerator MoveRoutine(Transform hideSpot, Transform entering, Transform locker)
     {
         isBusy = true;
-
         DisablePlayer();
 
-        while (Vector3.Distance(transform.position, target.position) > 0.1f)
+        transform.position = entering.position;
+
+        Vector3 directionToLocker = (locker.position - transform.position).normalized;
+        directionToLocker.y = 0;
+        Quaternion targetRotation = Quaternion.LookRotation(directionToLocker);
+        transform.rotation = targetRotation;
+
+        while (Vector3.Distance(transform.position, hideSpot.position) > 0.1f)
         {
             transform.position = Vector3.MoveTowards(
                 transform.position,
-                target.position,
+                hideSpot.position,
                 Time.deltaTime * speed
             );
-
             yield return null;
         }
 
-        transform.position = target.position;
-
+        transform.position = hideSpot.position;
         yield return Rotate180();
 
         isBusy = false;
     }
 
-    IEnumerator ExitRoutine(Transform target)
+    IEnumerator ExitRoutine(Transform exitSpot)
     {
         isBusy = true;
 
-        while (Vector3.Distance(transform.position, target.position) > 0.1f)
+        while (Vector3.Distance(transform.position, exitSpot.position) > 0.1f)
         {
             transform.position = Vector3.MoveTowards(
                 transform.position,
-                target.position,
+                exitSpot.position,
                 Time.deltaTime * speed
             );
-
             yield return null;
         }
 
-
         yield return Rotate180();
-
-        transform.position = target.position;
+        transform.position = exitSpot.position;
 
         EnablePlayer();
-
         isBusy = false;
     }
 
@@ -93,17 +92,10 @@ public class PlayerHiding : MonoBehaviour
         Quaternion targetRot = startRot * Quaternion.Euler(0, 180f, 0);
 
         float t = 0f;
-
         while (t < 1f)
         {
             t += Time.deltaTime * (rotationSpeed / 180f);
-
-            transform.rotation = Quaternion.Slerp(
-                startRot,
-                targetRot,
-                t
-            );
-
+            transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
             yield return null;
         }
 
@@ -127,4 +119,6 @@ public class PlayerHiding : MonoBehaviour
         if (firstPersonController != null)
             firstPersonController.enabled = true;
     }
+
+    public bool IsBusy() => isBusy;
 }

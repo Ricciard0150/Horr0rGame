@@ -86,8 +86,9 @@ public class BloodScreen : MonoBehaviour
         if (playerLife.GetCurrentLife() <= playerLife._maxLife)
         {
             yield return new WaitForSeconds(lifeRegenerator);
+            print(playerLife.GetCurrentLife().ToString() + "1");
             playerLife.GetRegen(1);
-            print(playerLife.GetCurrentLife().ToString());
+            print(playerLife.GetCurrentLife().ToString() + "2");
             if (playerLife.GetCurrentLife() == playerLife._maxLife) 
             { 
                 SetState(BloodState.None);

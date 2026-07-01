@@ -132,17 +132,25 @@ PrefabInstance:
       value: KitFirstPerson
       objectReference: {fileID: 0}
     - target: {fileID: 487509154014321973, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
-      propertyPath: '_bloodScreens.Array.data[1]'
+      propertyPath: _bloodScreens.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 487509154014321973, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
+      propertyPath: '_bloodScreens.Array.data[0]'
       value: 
       objectReference: {fileID: 1656216141}
     - target: {fileID: 487509154014321973, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
-      propertyPath: '_bloodScreens.Array.data[2]'
+      propertyPath: '_bloodScreens.Array.data[1]'
       value: 
       objectReference: {fileID: 534327104}
     - target: {fileID: 487509154014321973, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
-      propertyPath: '_bloodScreens.Array.data[3]'
+      propertyPath: '_bloodScreens.Array.data[2]'
       value: 
       objectReference: {fileID: 1911310970}
+    - target: {fileID: 487509154014321973, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
+      propertyPath: '_bloodScreens.Array.data[3]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8331855999357980384, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.17

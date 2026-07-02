@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
     [Header("Events")]
     public UnityEvent OnUseBattery;
     public UnityEvent OnUseFlashlight;
+    public bool IsDone;
 
     void Awake()
     {
@@ -33,9 +34,9 @@ public class GameController : MonoBehaviour
     {
         CarPiecesPlaced++;
 
-        if (CarPiecesPlaced >= 2)
+        if (CarPiecesPlaced == 2)
         {
-            Debug.Log("Puzzle Car is complete!");
+          IsDone = true;
         }
     }
 

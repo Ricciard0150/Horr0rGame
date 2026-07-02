@@ -7,6 +7,7 @@ public enum ItemType
     RightCarDoor,
     LeftCarDoor,
     Hammer,
+    KeyCar,
 }
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]

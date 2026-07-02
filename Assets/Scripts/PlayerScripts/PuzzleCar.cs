@@ -10,7 +10,6 @@ public class PuzzleCar : MonoBehaviour, IInteractable
     [SerializeField] private ItemType itemType;
     [SerializeField] private GameObject puzzleCar;
 
-    public int counter = 0;
     private void Start()
     {
         _col = GetComponent<BoxCollider>();
@@ -34,12 +33,16 @@ public class PuzzleCar : MonoBehaviour, IInteractable
 
             GameController.Instance.AddCarPiece();
 
-            Destroy(Inventory.Instance.CurrentItem.gameObject);
+            _col.enabled = false;
+            puzzleCar.GetComponent<BoxCollider>().enabled = false;
+
+                Destroy(Inventory.Instance.CurrentItem.gameObject);
             break;
 
         default:
             return;
     }
+        
 }
 
     public void ShowOutline()

@@ -1718,6 +1718,7 @@ MonoBehaviour:
   OnUseFlashlight:
     m_PersistentCalls:
       m_Calls: []
+  IsDone: 0
 --- !u!1 &1208883402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,6 +1921,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3288b3d2c92b5749bed967684a7245e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHiding
+--- !u!1 &1344052385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3565532812235091849, guid: 7232c38a1d5ef634a8a89bcd87abf69a, type: 3}
+  m_PrefabInstance: {fileID: 2995049300674235953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1344052387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344052385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &1344052388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344052385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feaa1528badaff3459f7153b684815b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UseCarToEscape
+  _col: {fileID: 1344052389}
+  outline: {fileID: 1344052387}
+--- !u!65 &1344052389
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344052385}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.654867, y: 1.3422472, z: 2.2053635}
+  m_Center: {x: 0.24606073, y: 0.667354, z: 0}
 --- !u!1 &1363293928 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ce5f5d2fe5375c2459d245aac4542e03, type: 3}
@@ -2762,64 +2821,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2090736010}
   m_SourcePrefab: {fileID: 100100000, guid: ce5f5d2fe5375c2459d245aac4542e03, type: 3}
---- !u!1 &1941302196 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4057483891663168119, guid: 7232c38a1d5ef634a8a89bcd87abf69a, type: 3}
-  m_PrefabInstance: {fileID: 2995049300674235953}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1941302197
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941302196}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1941302200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941302196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feaa1528badaff3459f7153b684815b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UseCarToEscape
-  _col: {fileID: 1941302197}
-  outline: {fileID: 1941302201}
---- !u!114 &1941302201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941302196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Outline
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &2056511391 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6972f4bfc5301414ba01b6e8606ff09d, type: 3}
@@ -3070,18 +3071,18 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4057483891663168119, guid: 7232c38a1d5ef634a8a89bcd87abf69a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1941302197}
-    - targetCorrespondingSourceObject: {fileID: 4057483891663168119, guid: 7232c38a1d5ef634a8a89bcd87abf69a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1941302200}
-    - targetCorrespondingSourceObject: {fileID: 4057483891663168119, guid: 7232c38a1d5ef634a8a89bcd87abf69a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1941302201}
     - targetCorrespondingSourceObject: {fileID: 557612885924328312, guid: 7232c38a1d5ef634a8a89bcd87abf69a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1157733630}
+    - targetCorrespondingSourceObject: {fileID: 3565532812235091849, guid: 7232c38a1d5ef634a8a89bcd87abf69a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1344052389}
+    - targetCorrespondingSourceObject: {fileID: 3565532812235091849, guid: 7232c38a1d5ef634a8a89bcd87abf69a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1344052388}
+    - targetCorrespondingSourceObject: {fileID: 3565532812235091849, guid: 7232c38a1d5ef634a8a89bcd87abf69a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1344052387}
   m_SourcePrefab: {fileID: 100100000, guid: 7232c38a1d5ef634a8a89bcd87abf69a, type: 3}
 --- !u!1001 &3606826669343601791
 PrefabInstance:

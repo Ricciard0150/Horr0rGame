@@ -3,8 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class UseCarToEscape : MonoBehaviour, IInteractable
 {
-    [SerializeField]private Collider _col;
+    [SerializeField] private Collider _col;
     [SerializeField] private Outline outline;
+
+    private bool canUse;
 
     private void Start()
     {
@@ -17,8 +19,20 @@ public class UseCarToEscape : MonoBehaviour, IInteractable
             outline.enabled = false;
     }
 
+    private void Update()
+    {
+        if (!canUse && GameController.Instance.CarPiecesPlaced >= 2)
+        {
+            canUse = true;
+            _col.enabled = true;
+        }
+    }
+
     public void Interact()
     {
+        if (!canUse)
+            return;
+
         if (Inventory.Instance.CurrentItem == null)
             return;
 
@@ -30,13 +44,8 @@ public class UseCarToEscape : MonoBehaviour, IInteractable
 
     public void ShowOutline()
     {
-        if (GameController.Instance.CarPiecesPlaced == 2)
-        {
-            _col.enabled = true;
-
-            if (outline != null)
-                outline.enabled = true;
-        }
+        if (canUse && outline != null)
+            outline.enabled = true;
     }
 
     public void HideOutline()

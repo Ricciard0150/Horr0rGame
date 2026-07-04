@@ -15,6 +15,7 @@ public enum ItemType
 public class PickUpItems : MonoBehaviour, ICollectable
 {
     [SerializeField] private ItemType itemType;
+    [SerializeField] private string itemName;
     public ItemType ItemType => itemType;
 
     private Rigidbody rb;
@@ -48,6 +49,7 @@ public class PickUpItems : MonoBehaviour, ICollectable
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
 
+        ItemNameUI.Instance.Show(itemName);
         Inventory.Instance.SetItem(this);
     }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 998625683362606464}
   - component: {fileID: 5761716681301260478}
   - component: {fileID: 2795045566347346582}
+  - component: {fileID: 2311767010195509149}
   m_Layer: 0
   m_Name: Cyberpunk_Car_Door_02_LOD0
   m_TagString: Untagged
@@ -90,6 +91,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2311767010195509149
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557612885924328312}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8745904, y: 1.0397228, z: 0.31448555}
+  m_Center: {x: -0.8395932, y: -0.050365686, z: -0.15724277}
 --- !u!1 &1198739982485825777
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +351,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PuzzleCar
   itemType: 2
   puzzleCar: {fileID: 5306960078941105886}
-  counter: 0
 --- !u!1 &1847279736554129054
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,7 +566,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PuzzleCar
   itemType: 3
   puzzleCar: {fileID: 557612885924328312}
-  counter: 0
 --- !u!65 &2648874340185340860
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -668,6 +688,9 @@ GameObject:
   - component: {fileID: 1261938957338729930}
   - component: {fileID: 6593252523519190333}
   - component: {fileID: 6427160831959483096}
+  - component: {fileID: 9012337712157377611}
+  - component: {fileID: 5817752726704092586}
+  - component: {fileID: 1564863387396489492}
   m_Layer: 0
   m_Name: Cyberpunk_Car_LOD0
   m_TagString: Untagged
@@ -750,6 +773,59 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9012337712157377611
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3565532812235091849}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.654867, y: 1.3422472, z: 2.2053635}
+  m_Center: {x: 0.24606073, y: 0.667354, z: 0}
+--- !u!114 &5817752726704092586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3565532812235091849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feaa1528badaff3459f7153b684815b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UseCarToEscape
+  _col: {fileID: 9012337712157377611}
+  outline: {fileID: 1564863387396489492}
+--- !u!114 &1564863387396489492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3565532812235091849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4057483891663168119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,6 +1187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUpItems
   itemType: 2
+  itemName: Right Car Door
 --- !u!1 &7136731386167449970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUpItems
   itemType: 3
+  itemName: Left Car Door
 --- !u!1 &8891556003215577999
 GameObject:
   m_ObjectHideFlags: 0

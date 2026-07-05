@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a1a32f882d7eb264ab40390fc2ce273d
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 184013
+  packageName: AudioRoom
+  packageVersion: 1.0
+  assetPath: Assets/AudioRoom/Example/AudioRoomExample.unity
+  uploadId: 410223

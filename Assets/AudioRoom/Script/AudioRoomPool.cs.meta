@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8a885b3c9b7cd464d9c1978a64cd1dd0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 184013
+  packageName: AudioRoom
+  packageVersion: 1.0
+  assetPath: Assets/AudioRoom/Script/AudioRoomPool.cs
+  uploadId: 410223

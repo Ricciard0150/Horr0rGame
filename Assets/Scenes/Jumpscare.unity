@@ -463,6 +463,22 @@ PlayableDirector:
     value: {fileID: 1449934431}
   - key: {fileID: 7399988195664073573, guid: a819383ccd65fdc4cba3532027b61b29, type: 2}
     value: {fileID: 6568706143444239565}
+  - key: {fileID: 1730796040396927255, guid: a819383ccd65fdc4cba3532027b61b29, type: 2}
+    value: {fileID: 1994953257}
+  - key: {fileID: -3204704888564845751, guid: a819383ccd65fdc4cba3532027b61b29, type: 2}
+    value: {fileID: 1994953253}
+  - key: {fileID: 590709359016704163, guid: a819383ccd65fdc4cba3532027b61b29, type: 2}
+    value: {fileID: 260808636}
+  - key: {fileID: -6931562987751969441, guid: a819383ccd65fdc4cba3532027b61b29, type: 2}
+    value: {fileID: 260808632}
+  - key: {fileID: -8492342110576127239, guid: a819383ccd65fdc4cba3532027b61b29, type: 2}
+    value: {fileID: 584937594}
+  - key: {fileID: -8559538831145474324, guid: a819383ccd65fdc4cba3532027b61b29, type: 2}
+    value: {fileID: 584937590}
+  - key: {fileID: -36093356022524092, guid: a819383ccd65fdc4cba3532027b61b29, type: 2}
+    value: {fileID: 743546549}
+  - key: {fileID: 7419555283407425797, guid: a819383ccd65fdc4cba3532027b61b29, type: 2}
+    value: {fileID: 743546545}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &236898469
@@ -580,6 +596,7 @@ GameObject:
   - component: {fileID: 260808633}
   - component: {fileID: 260808635}
   - component: {fileID: 260808634}
+  - component: {fileID: 260808636}
   m_Layer: 5
   m_Name: BloodGameOver1Right
   m_TagString: Untagged
@@ -644,6 +661,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260808632}
   m_CullTransparentMesh: 1
+--- !u!95 &260808636
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260808632}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &293817128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1369,7 @@ GameObject:
   - component: {fileID: 584937591}
   - component: {fileID: 584937593}
   - component: {fileID: 584937592}
+  - component: {fileID: 584937594}
   m_Layer: 5
   m_Name: BloodGameOver2Right
   m_TagString: Untagged
@@ -1394,6 +1434,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584937590}
   m_CullTransparentMesh: 1
+--- !u!95 &584937594
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584937590}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &651524316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,6 +1822,7 @@ GameObject:
   - component: {fileID: 743546546}
   - component: {fileID: 743546548}
   - component: {fileID: 743546547}
+  - component: {fileID: 743546549}
   m_Layer: 5
   m_Name: BloodGameOver2Left
   m_TagString: Untagged
@@ -1824,6 +1887,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743546545}
   m_CullTransparentMesh: 1
+--- !u!95 &743546549
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743546545}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &807882487
 GameObject:
   m_ObjectHideFlags: 0
@@ -4063,6 +4148,7 @@ GameObject:
   - component: {fileID: 1994953254}
   - component: {fileID: 1994953256}
   - component: {fileID: 1994953255}
+  - component: {fileID: 1994953257}
   m_Layer: 5
   m_Name: BloodGameOver1Left
   m_TagString: Untagged
@@ -4127,6 +4213,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994953253}
   m_CullTransparentMesh: 1
+--- !u!95 &1994953257
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994953253}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2039274882
 GameObject:
   m_ObjectHideFlags: 0

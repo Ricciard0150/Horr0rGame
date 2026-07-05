@@ -39,7 +39,7 @@ public class UseCarToEscape : MonoBehaviour, IInteractable
         if (Inventory.Instance.CurrentItem.ItemType != ItemType.KeyCar)
             return;
 
-        SceneManager.LoadScene("VictoryScene");
+        StartCoroutine(ScreenFadeToVictory.Instance.FadeAndLoadScene("VictoryScene"));
     }
 
     public void ShowOutline()

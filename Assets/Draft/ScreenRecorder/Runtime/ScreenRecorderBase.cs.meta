@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d7e12e6204bc84fc9b172edbccafed31
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 380926
+  packageName: Screen Recorder - Windows/macOS
+  packageVersion: 1.0.2
+  assetPath: Assets/Draft/ScreenRecorder/Runtime/ScreenRecorderBase.cs
+  uploadId: 935304

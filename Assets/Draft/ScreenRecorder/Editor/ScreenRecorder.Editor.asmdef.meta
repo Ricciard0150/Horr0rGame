@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d0770621d8a3e492f8e47a7fae7f5fae
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 380926
+  packageName: Screen Recorder - Windows/macOS
+  packageVersion: 1.0.2
+  assetPath: Assets/Draft/ScreenRecorder/Editor/ScreenRecorder.Editor.asmdef
+  uploadId: 935304

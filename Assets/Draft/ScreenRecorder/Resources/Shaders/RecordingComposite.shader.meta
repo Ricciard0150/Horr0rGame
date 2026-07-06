@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4a17f698b39e5477291dd5cdcb3a8d0e
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 380926
+  packageName: Screen Recorder - Windows/macOS
+  packageVersion: 1.0.2
+  assetPath: Assets/Draft/ScreenRecorder/Resources/Shaders/RecordingComposite.shader
+  uploadId: 935304

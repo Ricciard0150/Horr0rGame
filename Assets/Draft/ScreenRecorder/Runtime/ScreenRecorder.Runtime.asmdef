@@ -1,0 +1,14 @@
+{
+	"name": "ScreenRecorder.Runtime",
+	"references": [
+		"Unity.RenderPipelines.Core.Runtime"
+	],
+	"versionDefines": [
+		{
+			"name": "com.unity.render-pipelines.core",
+			"expression": "",
+			"define": "SCREENRECORDER_URP"
+		}
+	],
+	"autoReferenced": true
+}

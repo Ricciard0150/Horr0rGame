@@ -1,16 +1,24 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TelaInicial : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     [Header("Painéis")]
     public GameObject painelConfiguracoes;
     public GameObject painelCreditos;
 
+    [Header("Cena do Jogo")]
+    public string nomeDaCena;
+
+    private void Start()
+    {
+        painelConfiguracoes.SetActive(false);
+        painelCreditos.SetActive(false);
+    }
 
     public void IniciarJogo()
     {
-        SceneManager.LoadScene("NomeDaCena");
+        SceneManager.LoadScene(nomeDaCena);
     }
 
     public void AbrirConfiguracoes()
@@ -32,8 +40,7 @@ public class TelaInicial : MonoBehaviour
     {
         painelCreditos.SetActive(false);
     }
-
-    public void SairJogo()
+    public void SairDoJogo()
     {
         Debug.Log("Saindo do jogo...");
 

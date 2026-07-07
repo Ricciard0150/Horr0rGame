@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SoundObject : MonoBehaviour
 {
-    [SerializeField][Range(0.5f, 5)] float _waitTime;
+   /* [SerializeField][Range(0.5f, 5)] float _waitTime;
     bool _isActive = true;
 
     IEnumerator Start()
@@ -11,7 +11,7 @@ public class SoundObject : MonoBehaviour
         yield return new WaitForSeconds(_waitTime);
         //Destroy(gameObject);
         gameObject.SetActive(false);
-    }
+    }*/
     /*void Update()
     {
         if(_isActive)

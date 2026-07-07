@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 852d8db777386b54fa24cfdb2ac1f670
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: c0d944ca9defd20449bc336e50d75a08
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Jumpscare.unity
     guid: 5f2a1d5d0c939af428b171d9e93fbe2e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/VictoryScene.unity
     guid: 3ccfe29d96ed9f94a9358f123f7b994a
   - enabled: 0

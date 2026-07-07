@@ -244,17 +244,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: KitFirstPerson
       objectReference: {fileID: 0}
-    - target: {fileID: 6324793638799748438, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.33000016
+    - target: {fileID: 7783328572278808932, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
+      propertyPath: activeTime
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6324793638799748438, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.692
-      objectReference: {fileID: 0}
-    - target: {fileID: 6324793638799748438, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.37
+    - target: {fileID: 7783328572278808932, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
+      propertyPath: timeToAppear
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8331855999357980384, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
       propertyPath: m_LocalPosition.x

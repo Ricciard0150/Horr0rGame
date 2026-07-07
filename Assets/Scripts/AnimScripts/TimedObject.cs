@@ -1,18 +1,30 @@
 using System.Collections;
 using UnityEngine;
+using StarterAssets;
 
-public class TimedObject: MonoBehaviour
+public class TimedObject : MonoBehaviour
 {
     [SerializeField] private GameObject targetObject;
+    [SerializeField] private StarterAssetsInputs starterAssetsInputs;
+
     [SerializeField] private float timeToAppear = 45f;
     [SerializeField] private float activeTime = 10f;
 
+    private bool coroutineStarted;
+
     private void Start()
     {
-        if (targetObject != null)
-            targetObject.SetActive(false);
+        targetObject.SetActive(false);
+    }
 
-        StartCoroutine(AppearRoutine());
+    private void Update()
+    {
+        if (!coroutineStarted &&
+            (starterAssetsInputs.move.x != 0 || starterAssetsInputs.move.y != 0))
+        {
+            coroutineStarted = true;
+            StartCoroutine(AppearRoutine());
+        }
     }
 
     private IEnumerator AppearRoutine()
@@ -21,13 +33,11 @@ public class TimedObject: MonoBehaviour
         {
             yield return new WaitForSeconds(timeToAppear);
 
-            if (targetObject != null)
-                targetObject.SetActive(true);
+            targetObject.SetActive(true);
 
             yield return new WaitForSeconds(activeTime);
 
-            if (targetObject != null)
-                targetObject.SetActive(false);
+            targetObject.SetActive(false);
         }
     }
 }

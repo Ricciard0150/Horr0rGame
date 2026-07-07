@@ -252,6 +252,10 @@ PrefabInstance:
       propertyPath: timeToAppear
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7783328572278808932, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
+      propertyPath: starterAssetsInputs
+      value: 
+      objectReference: {fileID: 1304141285}
     - target: {fileID: 8331855999357980384, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.92
@@ -2180,6 +2184,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3288b3d2c92b5749bed967684a7245e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHiding
+--- !u!114 &1304141285 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 854927924779007896, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
+  m_PrefabInstance: {fileID: 232017448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e087ecce43ebbff45a1b360637807d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1363293928 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ce5f5d2fe5375c2459d245aac4542e03, type: 3}

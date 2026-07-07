@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI    ;
+
 using UnityEngine.InputSystem;
 
 public enum ActiveState
@@ -12,10 +14,11 @@ public class Flashlight : MonoBehaviour
     private Light _lt;
     private float _originalIntensity;
     [SerializeField] private float _intensityDecreaseRate = 0.5f;
-    [SerializeField] private float _batteryDuration = 10f;
+    [SerializeField] private Image[] batteryBars;
+    [SerializeField] private float _batteryDuration = 1f;
     private bool _lostingPower;
     private bool _isFullBattery = true;
-    private float _batteryTimer;    
+   [SerializeField] private float _batteryTimer;    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,15 +26,21 @@ public class Flashlight : MonoBehaviour
         _originalIntensity = _lt.intensity;
         GameController.Instance.OnUseBattery.AddListener(Recharge);
         GameController.Instance.OnUseFlashlight.AddListener(TurnFlashlight);
+
         _batteryTimer = _batteryDuration;
-    }   
+        UpdateBatteryUI();
+    }
 
     private void Recharge()
+
+
     {
+        print("sdjhfgujgsnjnfdsifds");
         _lt.intensity = _originalIntensity;
         _batteryTimer = _batteryDuration;
         _lostingPower = false;
-        
+
+        UpdateBatteryUI();
     }
     // Update is called once per frame
     void Update()
@@ -63,8 +72,28 @@ public class Flashlight : MonoBehaviour
             default:
                 break;
         }
-       
+        UpdateBatteryUI();
 
+    }
+    private void UpdateBatteryUI()
+    {
+        float percent = _batteryTimer / _batteryDuration;
+
+        int activeBars;
+
+        if (percent > 0.66f)
+            activeBars = 3;
+        else if (percent > 0.33f)
+            activeBars = 2;
+        else if (percent > 0f)
+            activeBars = 1;
+        else
+            activeBars = 0;
+
+        for (int i = 0; i < batteryBars.Length; i++)
+        {
+            batteryBars[i].enabled = i < activeBars;
+        }
     }
 
 

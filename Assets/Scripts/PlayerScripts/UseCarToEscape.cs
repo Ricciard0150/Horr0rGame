@@ -21,7 +21,7 @@ public class UseCarToEscape : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        if (!canUse && GameController.Instance.CarPiecesPlaced >= 2)
+        if (!canUse && GameController.Instance.CarPiecesPlaced >= 3)
         {
             canUse = true;
             _col.enabled = true;

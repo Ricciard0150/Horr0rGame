@@ -28,8 +28,9 @@ public class PuzzleCar : MonoBehaviour, IInteractable
     {
         case ItemType.RightCarDoor:
         case ItemType.LeftCarDoor:
+        case ItemType.Fuel:
 
-            puzzleCar.SetActive(true);
+       puzzleCar.SetActive(true);
 
             GameController.Instance.AddCarPiece();
 

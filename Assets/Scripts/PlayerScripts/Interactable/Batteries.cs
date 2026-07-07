@@ -7,6 +7,11 @@ public class Batteries : MonoBehaviour, ICollectable
     public ItemType ItemType => ItemType.Battery;
     public void Collect(Transform parent)
     {
+
+        Debug.Log("Bateria coletada!");
+
+        GameController.Instance.OnUseBattery.Invoke();
+
         Destroy(gameObject);
     }
 

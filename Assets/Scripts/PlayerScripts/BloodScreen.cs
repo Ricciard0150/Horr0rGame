@@ -14,10 +14,7 @@ public class BloodScreen : MonoBehaviour
     [SerializeField]private GameObject[] _bloodScreens;
     [SerializeField][Range(0.5f, 20)] private float lifeRegenerator;   
     private BloodState _currentState;
-   /* void Start()
-    {
-        playerLife = GetComponent<PlayerLife>();        
-    }*/
+  
     public void ShowBloodScreen()
     {
         if (playerLife == null) 

@@ -89,7 +89,7 @@ public class Enemy : MonoBehaviour
                 animator.SetBool("IsChasing", false);
                 animator.SetBool("IsPatroling", true);
                 _agent.SetDestination(_patrolController.MoveToNextPoint()); // Define o próximo ponto de patrulha para o inimigo.               
-                StartCoroutine(Patrolling());
+                StartCoroutine(Patrolling());                
                 break;
         }
     }

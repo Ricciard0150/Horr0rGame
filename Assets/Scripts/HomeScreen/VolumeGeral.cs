@@ -5,51 +5,53 @@ public class VolumeGeral : MonoBehaviour
 {
     public Slider sliderVolume;
     public Toggle toggleMudo;
-    public Image iconeToggle;
 
+    public Image iconeToggle;
     public Sprite iconeSom;
     public Sprite iconeMudo;
+
+    private float ultimoVolume = 1f;
 
     void Start()
     {
         sliderVolume.value = AudioListener.volume;
-        AtualizarToggle();
+        AtualizarInterface();
     }
 
     public void AlterarVolume()
     {
         AudioListener.volume = sliderVolume.value;
 
-        AtualizarToggle();
+        if (sliderVolume.value > 0)
+            ultimoVolume = sliderVolume.value;
+
+        AtualizarInterface();
     }
 
-    public void MudarMudo()
+    public void MudarMudo(bool mudo)
     {
-        if (toggleMudo.isOn)
+        if (mudo)
         {
+            ultimoVolume = sliderVolume.value;
+
             AudioListener.volume = 0;
-            sliderVolume.value = 0;
+            sliderVolume.SetValueWithoutNotify(0);
         }
         else
         {
-            AudioListener.volume = 1;
-            sliderVolume.value = 1;
+            AudioListener.volume = ultimoVolume;
+            sliderVolume.SetValueWithoutNotify(ultimoVolume);
         }
 
-        AtualizarToggle();
+        AtualizarInterface();
     }
 
-    void AtualizarToggle()
+    void AtualizarInterface()
     {
-        if (AudioListener.volume == 0)
-        {
-            iconeToggle.sprite = iconeMudo;
-            toggleMudo.isOn = true;
-        }
-        else
-        {
-            iconeToggle.sprite = iconeSom;
-            toggleMudo.isOn = false;
-        }
+        bool mudo = AudioListener.volume <= 0.001f;
+
+        toggleMudo.SetIsOnWithoutNotify(mudo);
+
+        iconeToggle.sprite = mudo ? iconeMudo : iconeSom;
     }
 }

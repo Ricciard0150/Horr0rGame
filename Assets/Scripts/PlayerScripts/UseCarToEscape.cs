@@ -8,6 +8,8 @@ public class UseCarToEscape : MonoBehaviour, IInteractable
 
     private bool canUse;
 
+    [SerializeField] private GameObject BatteryUI;
+
     private void Start()
     {
         _col = GetComponent<Collider>();
@@ -39,6 +41,7 @@ public class UseCarToEscape : MonoBehaviour, IInteractable
         if (Inventory.Instance.CurrentItem.ItemType != ItemType.KeyCar)
             return;
 
+        BatteryUI.SetActive(false);
         StartCoroutine(ScreenFadeToVictory.Instance.FadeAndLoadScene("VictoryScene"));
     }
 

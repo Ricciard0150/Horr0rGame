@@ -21,7 +21,7 @@ public class Batteries : MonoBehaviour, ICollectable
         if (flashlight.IsBatteryFull)
         {
             StopAllCoroutines();
-            StartCoroutine(ShowWarning("you have enough"));
+            StartCoroutine(ShowWarning("Battery is full!"));
             return;
         }
 

@@ -4,9 +4,10 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class PatrolController : MonoBehaviour
 {
     [SerializeField] private Transform[] _patrolPoints; //array pq tem valor fixo
-    private int _currentPointIndex;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private int _currentPointIndex;    
+    [Header("Teleport near player")]
     [SerializeField] private Transform _playerPositions;
+    private int closestIndex = 0;
     public Vector3 GetRandomPoint()
     {
           int randomIndex = Random.Range(0, _patrolPoints.Length);
@@ -26,9 +27,8 @@ public class PatrolController : MonoBehaviour
         return nextPoint;
     }
 
-    public int GetClosestPatrolPointIndex()
-    {
-        int closestIndex = 0;
+    public Transform GetClosestPatrolPointIndex()
+    {        
         float shortestDistance = float.MaxValue;
 
         for (int i = 0; i < _patrolPoints.Length; i++)

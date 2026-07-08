@@ -63,11 +63,11 @@ public class Enemy : MonoBehaviour
                 break;
             case EnemyState.Chasing:
                 //_agent.SetDestination(_player.position);
-                animator.SetBool("IsChasing", false);
-                StopCoroutine(TeleportPlayer());
+                animator.SetBool("IsChasing", false);                
                 break;
             case EnemyState.Patrolling:
-                animator.SetBool("IsPatroling", false);               
+                animator.SetBool("IsPatroling", false);
+                StopCoroutine(TeleportPlayer());
                 break;
         }
         _currentState = newState;// Atualiza o estado atual para o novo estado
@@ -145,6 +145,7 @@ public class Enemy : MonoBehaviour
         _punchBoxCollider.enabled = true;
         attackAudioClip.SetActive(true);
         ambientAudiosClip.SetActive(false);
+        StopCoroutine(TeleportPlayer());
         yield return new WaitForSeconds(0.8f); 
         animator.SetBool("IsPunch", false);
         _punchBoxCollider.enabled = false;
@@ -155,7 +156,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator TeleportPlayer()
     {
-        yield return new WaitForSeconds(2f);
-        _agent.transform.position = _patrolController.GetClosestPatrolPointIndex().position;
+        yield return new WaitForSeconds(30f);
+        _agent.Warp(_patrolController.GetClosestPatrolPointIndex().position);
     }
 }

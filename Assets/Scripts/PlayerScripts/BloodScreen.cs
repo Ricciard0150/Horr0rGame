@@ -12,6 +12,7 @@ public class BloodScreen : MonoBehaviour
 {
     [SerializeField] private PlayerLife playerLife;
     [SerializeField]private GameObject[] _bloodScreens;
+    [SerializeField] private GameObject lowHealthAudio;
     [SerializeField][Range(0.5f, 20)] private float lifeRegenerator;   
     private BloodState _currentState;
   
@@ -50,7 +51,8 @@ public class BloodScreen : MonoBehaviour
                 break;
 
             case BloodState.thirdHit:
-                bloodScreen._bloodScreens[2].SetActive(false);                
+                bloodScreen._bloodScreens[2].SetActive(false);
+                lowHealthAudio.SetActive(false);
                 break;
         }
         _currentState = newState;
@@ -72,7 +74,8 @@ public class BloodScreen : MonoBehaviour
             break;
 
             case BloodState.thirdHit:
-                bloodScreen._bloodScreens[2].SetActive (true);
+                bloodScreen._bloodScreens[2].SetActive(true);
+                lowHealthAudio.SetActive(true);
                 StartCoroutine(HealthRegenerator());
             break;
         }

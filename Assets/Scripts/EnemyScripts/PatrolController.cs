@@ -1,11 +1,12 @@
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PatrolController : MonoBehaviour
 {
     [SerializeField] private Transform[] _patrolPoints; //array pq tem valor fixo
-    private int _currentPointIndex;    
+    private int _currentPointIndex;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    [SerializeField] private Transform _playerPositions;
     public Vector3 GetRandomPoint()
     {
           int randomIndex = Random.Range(0, _patrolPoints.Length);
@@ -24,4 +25,28 @@ public class PatrolController : MonoBehaviour
         //print ("next patrol point: " + nextPoint);
         return nextPoint;
     }
+
+    public int GetClosestPatrolPointIndex()
+    {
+        int closestIndex = 0;
+        float shortestDistance = float.MaxValue;
+
+        for (int i = 0; i < _patrolPoints.Length; i++)
+        {
+            float distance = (_playerPositions.position - _patrolPoints[i].position).sqrMagnitude;
+
+            if (distance < shortestDistance)
+            {
+                shortestDistance = distance;
+                closestIndex = i;
+            }
+        }
+
+        return _patrolPoints[closestIndex];
+    }
+    /*public Transform[] GetPlayerPosition()
+    {        
+        _patrolPoints = _playerPositions.GetComponentsInChildren<Transform>();
+        return _patrolPoints;
+    }*/
 }

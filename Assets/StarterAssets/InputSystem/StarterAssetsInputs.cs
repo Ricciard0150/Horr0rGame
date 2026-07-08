@@ -19,22 +19,12 @@ namespace StarterAssets
 
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
-		public bool cursorInputForLook = true;
-
-		/*[Header("WalkAudio")]
-        [SerializeField] private AudioClip walkAudio;
-        [SerializeField] private AudioSource audioSourceWalk;        
-
-		[Header("RunAudio")]
-        [SerializeField] private AudioClip runAudio;
-        [SerializeField] private AudioSource audioSourceRun;   */     
+		public bool cursorInputForLook = true;	   
 
 #if ENABLE_INPUT_SYSTEM
         public void OnMove(InputValue value)
 		{
-			MoveInput(value.Get<Vector2>());
-            //Debug.Log("Move: " + move);
-           
+			MoveInput(value.Get<Vector2>());            
         }
 
 		public void OnLook(InputValue value)
@@ -43,12 +33,7 @@ namespace StarterAssets
 			{
 				LookInput(value.Get<Vector2>());
 			}
-		}
-
-		public void OnJump(InputValue value)
-		{
-			JumpInput(value.isPressed);
-		}
+		}		
 
 		public void OnSprint(InputValue value)
 		{
@@ -59,26 +44,17 @@ namespace StarterAssets
 
 		public void MoveInput(Vector2 newMoveDirection)
 		{
-			move = newMoveDirection;
-           /* audioSourceWalk.volume = 0.8f;
-            audioSourceWalk.PlayDelayed(0.5f);*/
+			move = newMoveDirection;         
         } 
 
 		public void LookInput(Vector2 newLookDirection)
 		{
 			look = newLookDirection;
-		}
-
-		public void JumpInput(bool newJumpState)
-		{
-			jump = newJumpState;
-		}
+		}	
 
 		public void SprintInput(bool newSprintState)
 		{
-			sprint = newSprintState;
-           /* audioSourceRun.volume = 0.8f;
-            audioSourceRun.PlayDelayed(0.5f);*/
+			sprint = newSprintState;           
         }
 		
 		private void OnApplicationFocus(bool hasFocus)

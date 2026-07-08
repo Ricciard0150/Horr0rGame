@@ -1,6 +1,7 @@
+using StarterAssets;
 using System.Collections;
 using UnityEngine;
-using StarterAssets;
+using UnityEngine.Audio;
 
 public class TimedObject : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class TimedObject : MonoBehaviour
     [SerializeField] private float timeToAppear = 45f;
     [SerializeField] private float activeTime = 10f;
 
-    private bool coroutineStarted;
+    private bool coroutineStarted;   
 
     private void Start()
     {
@@ -23,12 +24,13 @@ public class TimedObject : MonoBehaviour
             (starterAssetsInputs.move.x != 0 || starterAssetsInputs.move.y != 0))
         {
             coroutineStarted = true;
-            StartCoroutine(AppearRoutine());
+            StartCoroutine(AppearRoutine());            
         }
     }
 
     private IEnumerator AppearRoutine()
     {
+        
         while (true)
         {
             yield return new WaitForSeconds(timeToAppear);
@@ -39,5 +41,5 @@ public class TimedObject : MonoBehaviour
 
             targetObject.SetActive(false);
         }
-    }
+    }   
 }

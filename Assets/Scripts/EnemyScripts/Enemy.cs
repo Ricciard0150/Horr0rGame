@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
     [Space]
     [Header("Audio")]
     [SerializeField] private GameObject attackAudioClip;
+    [SerializeField] private GameObject ambientAudiosClip;
     IEnumerator Start()
     {
         _player = GameController.Instance.PlayerTransform; // Obtém a referência ao Transform do jogador a partir do GameController, que é um singleton responsável por gerenciar o jogo.
@@ -141,10 +142,12 @@ public class Enemy : MonoBehaviour
         animator.SetBool("IsPunch", true);
         _punchBoxCollider.enabled = true;
         attackAudioClip.SetActive(true);
+        ambientAudiosClip.SetActive(false);
         yield return new WaitForSeconds(0.8f); 
         animator.SetBool("IsPunch", false);
         _punchBoxCollider.enabled = false;
         attackAudioClip.SetActive(false);
+        ambientAudiosClip.SetActive(true);
         yield return new WaitForSeconds(5f); 
     }
 }

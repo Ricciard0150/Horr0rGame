@@ -254,6 +254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KitFirstPerson
       objectReference: {fileID: 0}
+    - target: {fileID: 2176393762612242964, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
+      propertyPath: m_Intensity
+      value: 6.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4436605742559068294, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
       propertyPath: 'batteryBars.Array.data[0]'
       value: 

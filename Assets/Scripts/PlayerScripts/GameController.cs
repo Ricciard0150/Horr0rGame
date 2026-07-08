@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
     {
         CarPiecesPlaced++;
 
-        if (CarPiecesPlaced == 2)
+        if (CarPiecesPlaced == 3)
         {
           IsDone = true;
         }

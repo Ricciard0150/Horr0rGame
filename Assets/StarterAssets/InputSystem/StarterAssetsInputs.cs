@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -20,11 +21,21 @@ namespace StarterAssets
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
 
+		[Header("WalkAudio")]
+        [SerializeField] private AudioClip[] walkAudios;
+        [SerializeField] private AudioSource[] audioSourceWalk;		
+        int walkIndex = 0;
+
+		[Header("RunAudio")]
+        [SerializeField] private AudioClip[] runAudios;
+        [SerializeField] private AudioSource[] audioSourceRun;
+        int runIndex = 0;
+
 #if ENABLE_INPUT_SYSTEM
-		public void OnMove(InputValue value)
+        public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
-			//Debug.Log("Move: " + move);
+            //Debug.Log("Move: " + move);           
         }
 
 		public void OnLook(InputValue value)
@@ -42,15 +53,15 @@ namespace StarterAssets
 
 		public void OnSprint(InputValue value)
 		{
-			SprintInput(value.isPressed);
-		}
+			SprintInput(value.isPressed);            
+        }
 #endif
 
 
 		public void MoveInput(Vector2 newMoveDirection)
 		{
-			move = newMoveDirection;
-		} 
+			move = newMoveDirection;           
+        } 
 
 		public void LookInput(Vector2 newLookDirection)
 		{
@@ -65,7 +76,8 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
-		}
+            
+        }
 		
 		private void OnApplicationFocus(bool hasFocus)
 		{
@@ -76,6 +88,50 @@ namespace StarterAssets
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
-	}
+		/*private void Update()
+		{
+			if (move.x == 0 && move.y == 0)
+				return;
+			if(sprint && move.x != 0 || move.y != 0)			
+                StartCoroutine(RunSound());
+            
+			if(!sprint && move.x != 0 || move.y != 0)
+                StartCoroutine(WalkSound());
+        }
+        IEnumerator WalkSound()
+        {
+            walkIndex = 0;
+           
+            float delay = 1;
+
+            if (walkAudios.Length > 0)
+            {
+			   audioSourceWalk[walkIndex].volume = 1f;
+               audioSourceWalk[walkIndex].PlayOneShot(walkAudios[walkIndex]);
+
+               walkIndex++;
+               if (walkIndex >= walkAudios.Length)
+                   walkIndex = 0;
+            }
+            yield return new WaitForSeconds(delay);            
+        }
+        IEnumerator RunSound()
+        {
+            runIndex = 0;
+            
+            float delay = 1;
+            if (runAudios.Length > 0)
+            {
+                audioSourceRun[runIndex].volume = 1f;
+                audioSourceRun[runIndex].PlayOneShot(runAudios[runIndex]);
+
+                runIndex++;
+
+                if (runIndex >= runAudios.Length)
+                     runIndex = 0;
+            }
+            yield return new WaitForSeconds(delay);            
+        }*/
+    }
 	
 }

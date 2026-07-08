@@ -1710,31 +1710,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7608128115816391750, guid: 69ee4a20e9a0a58429e2f3f8ea981b3b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9987024
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7608128115816391750, guid: 69ee4a20e9a0a58429e2f3f8ea981b3b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.024036078
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7608128115816391750, guid: 69ee4a20e9a0a58429e2f3f8ea981b3b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.028800368
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7608128115816391750, guid: 69ee4a20e9a0a58429e2f3f8ea981b3b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.034445126
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7608128115816391750, guid: 69ee4a20e9a0a58429e2f3f8ea981b3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -2.638
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7608128115816391750, guid: 69ee4a20e9a0a58429e2f3f8ea981b3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -3.396
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7608128115816391750, guid: 69ee4a20e9a0a58429e2f3f8ea981b3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 4.029
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9051538287559033486, guid: 69ee4a20e9a0a58429e2f3f8ea981b3b, type: 3}
       propertyPath: m_Name
@@ -2523,7 +2523,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: cbb64215cf7274e42961015f81310104, type: 3}
+  m_Resource: {fileID: 8300000, guid: 5bbd1105e782b9440b0bb3117fdd4b59, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

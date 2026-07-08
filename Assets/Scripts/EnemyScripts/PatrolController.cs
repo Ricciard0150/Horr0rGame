@@ -11,9 +11,7 @@ public class PatrolController : MonoBehaviour
     public Vector3 GetRandomPoint()
     {
           int randomIndex = Random.Range(0, _patrolPoints.Length);
-        return _patrolPoints[randomIndex].localPosition;
-        //criar metodo para retornar o ponro de patrulha mais proximo do inimigo
-        //criar metodo para retornar o ponto de patrulha mais proximo do player
+        return _patrolPoints[randomIndex].localPosition;        
     }
     public Vector3 MoveToNextPoint()
     {
@@ -22,8 +20,7 @@ public class PatrolController : MonoBehaviour
         Vector3 nextPoint = _patrolPoints[_currentPointIndex].position;
         _currentPointIndex++;
         if(_currentPointIndex >= _patrolPoints.Length)
-            _currentPointIndex = 0; 
-        //print ("next patrol point: " + nextPoint);
+            _currentPointIndex = 0;         
         return nextPoint;
     }
 
@@ -43,10 +40,5 @@ public class PatrolController : MonoBehaviour
         }
 
         return _patrolPoints[closestIndex];
-    }
-    /*public Transform[] GetPlayerPosition()
-    {        
-        _patrolPoints = _playerPositions.GetComponentsInChildren<Transform>();
-        return _patrolPoints;
-    }*/
+    }    
 }

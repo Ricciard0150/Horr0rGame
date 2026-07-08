@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour
     [Header("Patrol Controller")]
     [SerializeField] private PatrolController _patrolController;// Responsável por fornecer os pontos de patrulha para o inimigo, permitindo que ele se mova entre esses pontos quando estiver no estado de patrulha.
     [Space]
+    [Header("DoorInteract")]
+    DoorInteract doorInteract;
+    [Space]
     [Header("NavMeshAgent")]
     private NavMeshAgent _agent;//Responsável por calcular rotas e mover o inimigo no ambiente usando a navegação do Unity.     
     [Space]
@@ -118,7 +121,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<FirstPersonController>() != null)
+        if (other.GetComponent<FirstPersonController>() != null && doorInteract.IstnAvailable() == false)
         {
             StopCoroutine(Patrolling());
             StopCoroutine(Wait());
@@ -140,7 +143,9 @@ public class Enemy : MonoBehaviour
         }        
     }
     IEnumerator Attack()
-    {        
+    {
+       if (doorInteract.IstnAvailable() == true)
+            yield return null;
         animator.SetBool("IsPunch", true);
         _punchBoxCollider.enabled = true;
         attackAudioClip.SetActive(true);

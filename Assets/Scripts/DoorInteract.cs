@@ -42,6 +42,7 @@ public class DoorInteract : MonoBehaviour, IInteractable
 
         player.MoveTo(hideSpot, entering, exitSpot, transform);
         isInside = true;
+        
     }
 
     public void ExitLocker()
@@ -64,8 +65,8 @@ public class DoorInteract : MonoBehaviour, IInteractable
             outline.enabled = false;
     }
 
-    public bool IsAvailable()
+    public bool IstnAvailable()
     {
-        return !isInside;
+        return isInside;
     }
 }

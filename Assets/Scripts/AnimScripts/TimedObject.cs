@@ -10,7 +10,7 @@ public class TimedObject : MonoBehaviour
 
     [SerializeField] private float timeToAppear = 0.5f;
     [SerializeField] private float activeTime = 0.5f;
-    DoorInteract doorInteract;
+    private DoorInteract doorInteract;
     private bool coroutineStarted;
     [SerializeField] private AudioSource audioSourceWalk;
     private void Start()

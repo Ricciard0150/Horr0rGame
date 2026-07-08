@@ -87,7 +87,8 @@ public class Enemy : MonoBehaviour
                 // _agent.isStopped = false; // Permite que o inimigo se mova               
                 animator.SetBool("IsIdle", false);
                 animator.SetBool("IsChasing", true);
-                animator.SetBool("IsPatroling", false);                
+                animator.SetBool("IsPatroling", false);
+                StopCoroutine(TeleportPlayer());
                 break;
             case EnemyState.Patrolling:               
                 animator.SetBool("IsIdle", false);

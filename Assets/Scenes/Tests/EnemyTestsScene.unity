@@ -143,6 +143,14 @@ PrefabInstance:
       propertyPath: '_bloodScreens.Array.data[2]'
       value: 
       objectReference: {fileID: 1911310970}
+    - target: {fileID: 6324793638799748438, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.32999992
+      objectReference: {fileID: 0}
+    - target: {fileID: 6324793638799748438, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6920002
+      objectReference: {fileID: 0}
     - target: {fileID: 8331855999357980384, guid: fc66789519aa35a4586f42ee009a2623, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.17

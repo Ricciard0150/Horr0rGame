@@ -21,21 +21,20 @@ namespace StarterAssets
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
 
-		[Header("WalkAudio")]
-        [SerializeField] private AudioClip[] walkAudios;
-        [SerializeField] private AudioSource[] audioSourceWalk;		
-        int walkIndex = 0;
+		/*[Header("WalkAudio")]
+        [SerializeField] private AudioClip walkAudio;
+        [SerializeField] private AudioSource audioSourceWalk;        
 
 		[Header("RunAudio")]
-        [SerializeField] private AudioClip[] runAudios;
-        [SerializeField] private AudioSource[] audioSourceRun;
-        int runIndex = 0;
+        [SerializeField] private AudioClip runAudio;
+        [SerializeField] private AudioSource audioSourceRun;   */     
 
 #if ENABLE_INPUT_SYSTEM
         public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
-            //Debug.Log("Move: " + move);           
+            //Debug.Log("Move: " + move);
+           
         }
 
 		public void OnLook(InputValue value)
@@ -60,7 +59,9 @@ namespace StarterAssets
 
 		public void MoveInput(Vector2 newMoveDirection)
 		{
-			move = newMoveDirection;           
+			move = newMoveDirection;
+           /* audioSourceWalk.volume = 0.8f;
+            audioSourceWalk.PlayDelayed(0.5f);*/
         } 
 
 		public void LookInput(Vector2 newLookDirection)
@@ -76,7 +77,8 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
-            
+           /* audioSourceRun.volume = 0.8f;
+            audioSourceRun.PlayDelayed(0.5f);*/
         }
 		
 		private void OnApplicationFocus(bool hasFocus)
@@ -87,51 +89,7 @@ namespace StarterAssets
 		private void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
-		}
-		/*private void Update()
-		{
-			if (move.x == 0 && move.y == 0)
-				return;
-			if(sprint && move.x != 0 || move.y != 0)			
-                StartCoroutine(RunSound());
-            
-			if(!sprint && move.x != 0 || move.y != 0)
-                StartCoroutine(WalkSound());
-        }
-        IEnumerator WalkSound()
-        {
-            walkIndex = 0;
-           
-            float delay = 1;
-
-            if (walkAudios.Length > 0)
-            {
-			   audioSourceWalk[walkIndex].volume = 1f;
-               audioSourceWalk[walkIndex].PlayOneShot(walkAudios[walkIndex]);
-
-               walkIndex++;
-               if (walkIndex >= walkAudios.Length)
-                   walkIndex = 0;
-            }
-            yield return new WaitForSeconds(delay);            
-        }
-        IEnumerator RunSound()
-        {
-            runIndex = 0;
-            
-            float delay = 1;
-            if (runAudios.Length > 0)
-            {
-                audioSourceRun[runIndex].volume = 1f;
-                audioSourceRun[runIndex].PlayOneShot(runAudios[runIndex]);
-
-                runIndex++;
-
-                if (runIndex >= runAudios.Length)
-                     runIndex = 0;
-            }
-            yield return new WaitForSeconds(delay);            
-        }*/
+		}		
     }
 	
 }

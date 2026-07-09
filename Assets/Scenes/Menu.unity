@@ -330,53 +330,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'RECURSOS UTILIZADOS
-
-
-    Assets e Ferramentas
-
-
-    Unity Asset Store
-
-
-    AC
-    Game Assets
-
-    Sandro T
-
-    Nobiax / Yughues
-
-    Green Moss Games
-
-    LowlyPoly
-
-    Wello
-    Soft
-
-    SoundBits | Sound Effects
-
-    Arya of Terror
-
-    The Artifact
-
-    Daniel
-    SoundsGood
-
-    Anthon
-
-    Dataram 57
-
-    Lumino
-
-    Nox_Sound
-
-    RRFreelance
-
-
-    ITCH.IO
-
-
-    ScratchBattles'
+  m_text: "RECURSOS UTILIZADOS\n\nAssets e Ferramentas\n\nUnity store\r\n\r\nAC Game
+    Assets \r\nSandro T\r\nNobiax / Yughues\r\nGreen Moss Games\r\nLowlyPoly\r\nWello
+    Soft\r\nSoundBits | Sound Effects \r\nArya of Terror\r\nThe Artifact\r\nDaniel
+    SoundsGood\r\nAnthon\r\nDataram 57\r\nlumino\r\nNox_Sound\r\nRRFreelance \r\n\r\nitch.io\r\nScratchBattles
+    \r\n\r\nFreesound\r\nLittleRobotSoundFactory\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e48d81020762c7946ac70f95631c3c78, type: 2}
   m_sharedMaterial: {fileID: 3403671416660078228, guid: e48d81020762c7946ac70f95631c3c78, type: 2}
@@ -2130,7 +2088,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -548, y: 20}
+  m_AnchoredPosition: {x: -548, y: 103}
   m_SizeDelta: {x: 743.667, y: 956.179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1138131745
@@ -2159,9 +2117,10 @@ MonoBehaviour:
     do menu principal, incluindo grama e elementos visuais.\n\nPrograma\xE7\xE3o
     e Desenvolvimento:\n\nYuri\n\n- Programa\xE7\xE3o das mec\xE2nicas do jogo.\n-
     Implementa\xE7\xE3o de sistemas e funcionalidades.\n- Pesquisa e integra\xE7\xE3o
-    da maioria dos recursos utilizados no projeto.\n\nDesenvolvimento de Cena e Conte\xFAdo:\n\nRichard\n\n-
-    Desenvolvimento da cena de vit\xF3ria/cutscene final.\n- Implementa\xE7\xE3o
-    de elementos narrativos e visuais da conclus\xE3o do jogo.\n"
+    da maioria dos recursos utilizados no projeto.\n- Desenvolvimento da cena de
+    jumpscare.\n\nDesenvolvimento de Cena e Conte\xFAdo:\n\nRichard\n\n- Desenvolvimento
+    da cena de vit\xF3ria/cutscene final.\n- Implementa\xE7\xE3o de elementos narrativos
+    e visuais da conclus\xE3o do jogo.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e48d81020762c7946ac70f95631c3c78, type: 2}
   m_sharedMaterial: {fileID: 3403671416660078228, guid: e48d81020762c7946ac70f95631c3c78, type: 2}

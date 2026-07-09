@@ -1644,11 +1644,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1252006992983614264, guid: fe41a2e189446ce4f938f3a6c97bed16, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1252006992983614264, guid: fe41a2e189446ce4f938f3a6c97bed16, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3475543843230760922, guid: fe41a2e189446ce4f938f3a6c97bed16, type: 3}
       propertyPath: m_Pivot.x
@@ -1732,15 +1732,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3711813449715134009, guid: fe41a2e189446ce4f938f3a6c97bed16, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3711813449715134009, guid: fe41a2e189446ce4f938f3a6c97bed16, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3711813449715134009, guid: fe41a2e189446ce4f938f3a6c97bed16, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3928236352648402713, guid: fe41a2e189446ce4f938f3a6c97bed16, type: 3}
       propertyPath: m_Value
@@ -2664,9 +2664,9 @@ MonoBehaviour:
     e Desenvolvimento:\n\nYuri\n\n- Programa\xE7\xE3o das mec\xE2nicas do jogo.\n-
     Implementa\xE7\xE3o de sistemas e funcionalidades.\n- Pesquisa e integra\xE7\xE3o
     da maioria dos recursos utilizados no projeto.\n- Desenvolvimento da cena de
-    jumpscare.\n\nDesenvolvimento de Cena e Conte\xFAdo:\n\nRichard\n\n- Desenvolvimento
-    da cena de vit\xF3ria/cutscene final.\n- Implementa\xE7\xE3o de elementos narrativos
-    e visuais da conclus\xE3o do jogo.\n"
+    jumpscare.\n_Sonoplasta\n\nDesenvolvimento de Cena e Conte\xFAdo:\n\nRichard\n\n-
+    Desenvolvimento da cena de vit\xF3ria/cutscene final.\n- Implementa\xE7\xE3o
+    de elementos narrativos e visuais da conclus\xE3o do jogo."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e48d81020762c7946ac70f95631c3c78, type: 2}
   m_sharedMaterial: {fileID: 3403671416660078228, guid: e48d81020762c7946ac70f95631c3c78, type: 2}
@@ -3082,7 +3082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1154233732
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4611,7 +4611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2002469395
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4631,7 +4631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6.565918, y: -9.468994}
+  m_AnchoredPosition: {x: 6.565918, y: -6}
   m_SizeDelta: {x: 39.795, y: 37.808}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2002469396

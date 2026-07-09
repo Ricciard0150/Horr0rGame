@@ -10,7 +10,7 @@ public class TimedObject : MonoBehaviour
 
     [SerializeField] private float timeToAppear = 0.5f;
     [SerializeField] private float activeTime = 0.5f;
-    private DoorInteract doorInteract;
+   
     private bool coroutineStarted;
     [SerializeField] private AudioSource audioSourceWalk;
     private void Start()
@@ -19,13 +19,7 @@ public class TimedObject : MonoBehaviour
     }
 
     private void Update()
-    {
-        if (doorInteract.IstnAvailable() == true) 
-        {
-            StartCoroutine(AppearRoutine());
-            targetObject.SetActive(false);
-            return;
-        }
+    {        
         if (!coroutineStarted && (starterAssetsInputs.move.x != 0 || starterAssetsInputs.move.y != 0))
         {
             coroutineStarted = true;

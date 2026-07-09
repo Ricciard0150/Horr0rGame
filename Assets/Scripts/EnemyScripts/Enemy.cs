@@ -13,9 +13,8 @@ public class Enemy : MonoBehaviour
 {
     [Header("Patrol Controller")]
     [SerializeField] private PatrolController _patrolController;// Responsável por fornecer os pontos de patrulha para o inimigo, permitindo que ele se mova entre esses pontos quando estiver no estado de patrulha.
-    [Space]
-    [Header("DoorInteract")]
-    DoorInteract doorInteract;
+    private bool _isPlaying;
+    [Space]    
     [Space]
     [Header("NavMeshAgent")]
     private NavMeshAgent _agent;//Responsável por calcular rotas e mover o inimigo no ambiente usando a navegação do Unity.     
@@ -52,6 +51,7 @@ public class Enemy : MonoBehaviour
         }        
         yield return new WaitForSeconds(1f); // Espera 2 segundos para simular o tempo de spawn do inimigo, permitindo que a animação de spawn seja exibida antes de iniciar o comportamento do inimigo.
         animator.SetBool("Spawn", false); // Define o parâmetro "Spawn" como false para finalizar a animação de spawn        
+        _isPlaying = false;
         SetState(EnemyState.Patrolling);
     }   
     
@@ -95,8 +95,11 @@ public class Enemy : MonoBehaviour
                 animator.SetBool("IsChasing", false);
                 animator.SetBool("IsPatroling", true);
                 _agent.SetDestination(_patrolController.MoveToNextPoint()); // Define o próximo ponto de patrulha para o inimigo.               
-                StartCoroutine(Patrolling());     
-                StartCoroutine(TeleportPlayer());
+                StartCoroutine(Patrolling());  
+                if(_isPlaying == false)                
+                    StartCoroutine(TeleportPlayer());                              
+
+                _isPlaying = true;
                 break;
         }
     }
@@ -122,7 +125,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<FirstPersonController>() != null && doorInteract.IstnAvailable() == false)
+        if (other.GetComponent<FirstPersonController>() != null)
         {
             StopCoroutine(Patrolling());
             StopCoroutine(Wait());
@@ -145,13 +148,11 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator Attack()
     {
-       if (doorInteract.IstnAvailable() == true)
-            yield return null;
+        StopCoroutine(TeleportPlayer());
         animator.SetBool("IsPunch", true);
         _punchBoxCollider.enabled = true;
         attackAudioClip.SetActive(true);
-        ambientAudiosClip.SetActive(false);
-        StopCoroutine(TeleportPlayer());
+        ambientAudiosClip.SetActive(false);       
         yield return new WaitForSeconds(0.8f); 
         animator.SetBool("IsPunch", false);
         _punchBoxCollider.enabled = false;
@@ -161,8 +162,9 @@ public class Enemy : MonoBehaviour
     }
 
     IEnumerator TeleportPlayer()
-    {
+    {        
         yield return new WaitForSeconds(30f);
         _agent.Warp(_patrolController.GetClosestPatrolPointIndex().position);
+        _isPlaying = false;
     }
 }

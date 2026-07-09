@@ -67,6 +67,6 @@ public class DoorInteract : MonoBehaviour, IInteractable
 
     public bool IstnAvailable()
     {
-        return isInside;
+        return !isInside;
     }
 }

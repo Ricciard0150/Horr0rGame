@@ -158,7 +158,7 @@ public class Enemy : MonoBehaviour
         _punchBoxCollider.enabled = false;
         attackAudioClip.SetActive(false);
         ambientAudiosClip.SetActive(true);
-        yield return new WaitForSeconds(5f); 
+        yield return new WaitForSeconds(1f); 
     }
 
     IEnumerator TeleportPlayer()
